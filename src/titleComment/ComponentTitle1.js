@@ -73,20 +73,23 @@ class ComponentTitle1 extends Component{
                             游记</HerderSelect></Link>
                         {this.showCenter()}
                         <div className={this.state.login === '1' ? backShow : backHidden}></div>
-                        <div className={this.state.login === '1' ? loginShow : loginHidden}>
-                            <form>
-                                <input type="text" className="login_phone login_total" placeholder="请输入你的手机号"/>
-                                <input type="password" className="login_check login_total" placeholder="请输入你的密码"/>
-                                <br/>
-                                <a href="#" className="login_forget">忘记密码？</a>
-                                <button className="login_ok radius" onClick={this.dealLogin.bind(this, '0')}>关闭</button>
-                                <button className="login_ok radius background">登录</button>
-                            </form>
-                        </div>
                         <Route exact path="/1" component={ComponentHome}/>
+                        <Route exact path="/2" component={ComponentAll}/>
+                        <Route exact path="/3" component={ComponentAll}/>
                         <Route path="/4" component={ComponentAll}/>
                     </div>
                 </Router>
+
+                <div className={this.state.login === '1' ? loginShow : loginHidden}>
+                    <form>
+                        <input type="text" className="login_phone login_total" placeholder="请输入你的手机号"/>
+                        <input type="password" className="login_check login_total" placeholder="请输入你的密码"/>
+                        <br/>
+                        <a href="#" className="login_forget">忘记密码？</a>
+                        <button className="login_ok radius" onClick={this.dealLogin.bind(this, '0')}>关闭</button>
+                        <button className="login_ok radius background">登录</button>
+                    </form>
+                </div>
             </div>
         );
     }
