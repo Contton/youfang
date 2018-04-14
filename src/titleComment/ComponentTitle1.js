@@ -3,9 +3,12 @@ import img13 from '../images/13.jpg';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import HerderSelect from './ComponentTitle1Select';
 import ComponentHome from '../homeComment/ComponentHome';
-import ComponentRegister from '../registerComment/ComponentRegister';
-import ComponentLogin from '../loginComment/ComponentLogin';
 import ComponentAll from '../strategyComment/ComponentAll';
+import classNames from 'classnames/bind';
+
+import styles from '../css/title1Css.css';
+
+let style = classNames.bind(styles);
 
 class ComponentTitle1 extends Component{
     constructor(props){
@@ -16,14 +19,10 @@ class ComponentTitle1 extends Component{
             login:'0',
         };
     }
-    dealLogin(){
+    showCenter(){
         if(this.state.login === '0'){
-            return <Link to="/6"><HerderSelect index="6"
-                                               changeMouserOver={this.changeMouserOver.bind(this)}
-                                               changeClicked={this.changeClicked.bind(this)}
-                                               selected={this.state.clicked} mouse_over={this.state.mouse_over}
-                                               left={true}>登录</HerderSelect></Link>;
-        }else if(this.state.login === '1'){
+            return <div className="title1_login left"><a href="#" onClick={this.dealLogin.bind(this, '1')}>登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">注册</a></div>;
+        }else if(this.state.login === '2'){
             return <Link to="/8"><HerderSelect index="8"
                                                changeMouserOver={this.changeMouserOver.bind(this)}
                                                changeClicked={this.changeClicked.bind(this)}
@@ -31,15 +30,8 @@ class ComponentTitle1 extends Component{
                                                left={true} end={true}>个人中心</HerderSelect></Link>;
         }
     }
-    dealRegister(){
-        if(this.state.login === '0') {
-            return <Link to="/7"><HerderSelect index="7" changeMouserOver={this.changeMouserOver.bind(this)}
-                                               changeClicked={this.changeClicked.bind(this)}
-                                               selected={this.state.clicked} mouse_over={this.state.mouse_over}
-                                               left={true} end={true}>注册</HerderSelect></Link>;
-        }else if(this.state.login === '1'){
-            return null;
-        }
+    dealLogin(state, event){
+        this.setState({login:state});
     }
     changeClicked(index){
         this.setState({clicked:index});
@@ -48,6 +40,22 @@ class ComponentTitle1 extends Component{
         this.setState({mouse_over:index});
     }
     render(){
+        let backShow = style({
+            title1_back:true,
+            login_show:true,
+        })
+        let backHidden = style({
+            title1_back:false,
+            login_show:false,
+        })
+        let loginShow = style({
+            login_box:true,
+            login_show:true,
+        })
+        let loginHidden = style({
+            login_box:false,
+            login_show:false,
+        })
         return(
             <div className="title1_all width font_16">
                 <div className="title1_logo left"><img src={img13}/></div>
@@ -63,12 +71,20 @@ class ComponentTitle1 extends Component{
                             旅游攻略</HerderSelect></Link>
                         <Link to="/5"><HerderSelect index="5" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                             游记</HerderSelect></Link>
-                        {this.dealLogin()}
-                        {this.dealRegister()}
-                        <Route path="/1" component={ComponentHome}/>
+                        {this.showCenter()}
+                        <div className={this.state.login === '1' ? backShow : backHidden}></div>
+                        <div className={this.state.login === '1' ? loginShow : loginHidden}>
+                            <form>
+                                <input type="text" className="login_phone login_total" placeholder="请输入你的手机号"/>
+                                <input type="password" className="login_check login_total" placeholder="请输入你的密码"/>
+                                <br/>
+                                <a href="#" className="login_forget">忘记密码？</a>
+                                <button className="login_ok radius" onClick={this.dealLogin.bind(this, '0')}>关闭</button>
+                                <button className="login_ok radius background">登录</button>
+                            </form>
+                        </div>
+                        <Route exact path="/1" component={ComponentHome}/>
                         <Route path="/4" component={ComponentAll}/>
-                        <Route path="/6" component={ComponentLogin}/>
-                        <Route path="/7" component={ComponentRegister}/>
                     </div>
                 </Router>
             </div>
