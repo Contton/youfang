@@ -1,0 +1,35 @@
+.about_all{
+    height: 200px;
+    background-color: #3C3C3C;
+    border-top: 5px solid #FF9D00;
+    margin-top: 5%;
+    padding-left: 30%;
+    padding-top: 1%;
+}
+
+.about_us{
+    width: 12%;
+}
+
+.us_title{
+    height: 13%;
+    padding-left: 9%;
+    padding-top: 2%;
+    border-left: 5px solid #FF9D00;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.us_info{
+    height: 12%;
+    padding-left: 12%;
+    padding-top: 2%;
+    font-size: 14px;
+    margin-bottom: 3%;
+}
+
+.us_info:hover{
+    color: #FF9D00;
+    cursor: pointer;
+    text-decoration: underline;
+}

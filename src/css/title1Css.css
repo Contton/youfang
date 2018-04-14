@@ -1,0 +1,40 @@
+.title1_all{
+    font-family: '微软雅黑';
+    height: 60px;
+}
+.title1_logo{
+    margin-left: 30%;
+    height: 58px;
+    background-color: #FF9D00;
+}
+.title1_logo img{
+    height: 100%;
+}
+.headerFirst{
+    margin-left: 2%;
+}
+.headerEnd{
+    margin-right: 2%;
+}
+.headerCommon{
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
+    padding: 15px;
+    height: 25px;
+    border-bottom:2px solid white;
+}
+.onclickStyle{
+    color: white;
+    border-bottom:3px solid #FF9D00;
+    background-color: #FF9D00;
+}
+.overStyle{
+    border-bottom:3px solid #FF9D00;
+    color:#FF9D00;
+    cursor:pointer;
+}
+.outStyle{
+    border-bottom:3px solid white;
+    color: #3c3c3c;
+}

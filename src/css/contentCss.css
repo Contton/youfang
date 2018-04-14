@@ -1,0 +1,214 @@
+.content{
+    width: 1360px;
+    margin: 0 auto;
+}
+.content_all{
+    width: 75%;
+    height: 1000px;
+    margin: 0 auto;
+}
+.content_left{
+    width: 27%;
+    height: 100%;
+}
+.content_traveller{
+    height: 31%;
+    margin-top: 10%;
+}
+.content_strategy{
+    height: 62%;
+    margin-top: 9%;
+}
+.strategy_one{
+    height: 44%;
+    margin-top: 10%;
+}
+.strategy_one:hover{
+    box-shadow: 0 0 5px 1px #999999;
+    cursor: pointer;
+}
+.content_right{
+    width: 70%;
+    margin-left: 3%;
+}
+.content_popular{
+    height: 30%;
+    margin-top: 4%;
+}
+.content_travels{
+    height: 62%;
+    margin-top: 4%;
+}
+.traveller_title{
+    width: 75%;
+    height: 12%;
+}
+.strategy_title{
+    width: 75%;
+    height: 2%;
+    margin-top: 2%;
+}
+.traveller_more{
+    width: 24%;
+    height: 10%;
+}
+
+.strategy_more{
+    width: 24%;
+    height: 2%;
+    margin-top: 2%;
+}
+
+.traveller_more:hover{
+    color: #FF9D00;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.strategy_more:hover{
+    color: #FF9D00;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.content_strategy img{
+    width: 100%;
+    height: 65%;
+}
+
+.content_traveller img{
+    width: 100%;
+    height: 68%;
+}
+.traveller_all{
+    height: 85%;
+}
+.traveller_all:hover{
+    box-shadow: 0 0 5px 1px #999999;
+    cursor: pointer;
+}
+.traveller_name{
+    margin-top: 2%;
+}
+
+.traveller_intro{
+    margin-top: 1%;
+}
+.popular_title{
+    width: 86%;
+    height: 12%;
+    margin-left: 3%;
+}
+
+.popular_more{
+    width: 9%;
+    height: 10%;
+}
+
+.popular_more:hover{
+    color: #FF9D00;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.content_places{
+    margin: 0;
+}
+
+.content_place{
+    width: 30%;
+    height: 85%;
+    margin-left: 3%;
+}
+.content_place:hover{
+    box-shadow: 0 0 5px 1px #999999;
+    cursor: pointer;
+}
+.content_place img{
+    width: 100%;
+    height: 55%;
+}
+
+.travels_title{
+    width: 80%;
+    height: 7%;
+    margin-left: 3%;
+}
+.travels_more{
+    width: 16%;
+    height: 5%;
+    text-align: center;
+    padding-top: 1%;
+}
+.travels_more:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.travels_all{
+    width: 97%;
+    height: 93%;
+    margin-left: 3%;
+}
+
+.travels_one{
+    height: 30%;
+    margin-bottom: 3%;
+}
+
+.travels_one:hover{
+    box-shadow: 0 0 5px 1px #999999;
+    cursor: pointer;
+}
+
+.one_picture{
+    width: 35%;
+}
+
+.one_picture img{
+    width: 100%;
+    height: 100%;
+}
+
+.one_title{
+    width: 62%;
+    margin-left: 3%;
+    height: 20%;
+    margin-top: 2%;
+}
+.one_content{
+    height: 50%;
+    width: 62%;
+    margin-left: 3%;
+}
+
+.one_traveller{
+    width: 62%;
+    height: 15%;
+    margin-left: 3%;
+}
+
+.one_info{
+    width: 30%;
+    margin-right: 2%;
+}
+
+.one_info:hover{
+    color: #FF9D00;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.writer:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.one_button{
+    width: 20%;
+    border: none;
+    outline:medium;
+}
+.one_button:hover{
+    cursor: pointer;
+}

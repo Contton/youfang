@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.width{
+  width: 100%;
+}
+.height{
+  height: 100%;
+}
+.font_16{
+  font-size: 16px;
+}
+.font_18{
+  font-size: 18px;
+}
+.font_20{
+  font-size: 20px;
+}
+.font_weight{
+  font-weight: bold;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.route_all{
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+.radius{
+  border-radius: 5px;
+}
+.color_orange{
+  color: #FF9D00;
+}
+.color_white{
+  color: white;
+}
+.color_grey{
+  color: #999999;
+}
+.color_black{
+  color: black;
+}
+.background{
+  background-color: #FF9D00;
+}
