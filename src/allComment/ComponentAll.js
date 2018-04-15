@@ -1,12 +1,12 @@
 'use strict'
 import React from 'react'
-import ComponentTitle1 from '../titleComment/ComponentTitle1';
+import ComponentTitle from '../titleComment/RouterInit';
 
 class CommentBox extends React.Component{
     render(){
         return(
             <div className="width">
-                <ComponentTitle1/>
+                <ComponentTitle/>
             </div>
         );
     }
