@@ -40,6 +40,10 @@
 .title1_login{
     line-height: 53px;
     margin-left: 5%;
+    font-size: 14px;
+}
+.title1_register{
+    margin-left: 1%;
 }
 .title1_login a{
     text-decoration: none;

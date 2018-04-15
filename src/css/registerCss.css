@@ -46,6 +46,6 @@
     margin-top: 7%;
     padding-left: 2%;
 }
-.register_get{
+.register_get:hover{
     cursor: pointer;
 }

@@ -8,6 +8,7 @@ import './css/aboutCss.css';
 import './css/registerCss.css';
 import './css/loginCss.css';
 import './css/strategyCss.css';
+import './css/strategyPageCss.css';
 import CommentBox from './allComment/ComponentAll';
 
 ReactDOM.render(

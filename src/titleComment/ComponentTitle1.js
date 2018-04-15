@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import HerderSelect from './ComponentTitle1Select';
 import ComponentHome from '../homeComment/ComponentHome';
 import ComponentAll from '../strategyComment/ComponentAll';
+import ComponentLogin from '../loginComment/ComponentLogin';
+import ComponentRegister from '../registerComment/ComponentRegister';
+import ComponentStrategyPage from '../strategyPageComment/ComponentStrategyPage';
 import classNames from 'classnames/bind';
 
 import styles from '../css/title1Css.css';
@@ -19,9 +22,16 @@ class ComponentTitle1 extends Component{
             login:'0',
         };
     }
-    showCenter(){
+    showLogin(){
         if(this.state.login === '0'){
-            return <div className="title1_login left"><a href="#" onClick={this.dealLogin.bind(this, '1')}>登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">注册</a></div>;
+            return <Link to="/6"><div className="title1_login left"><a href="#">登录</a></div></Link>;
+        }else if(this.state.login === '2'){
+            return <Link to="/8"><div className="title1_login left">个人中心</div></Link>;
+        }
+    }
+    showRegister(){
+        if(this.state.login === '0'){
+            return <Link to="/7"><div className="title1_login title1_register left"><a href="#">注册</a></div></Link>;
         }else if(this.state.login === '2'){
             return <Link to="/8"><HerderSelect index="8"
                                                changeMouserOver={this.changeMouserOver.bind(this)}
@@ -61,7 +71,7 @@ class ComponentTitle1 extends Component{
                 <div className="title1_logo left"><img src={img13}/></div>
                 <Router>
                     <div>
-                        <Link to="/1"><HerderSelect index="1" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true} first={true}>
+                        <Link to="/"><HerderSelect index="1" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true} first={true}>
                             首页</HerderSelect></Link>
                         <Link to="/2"><HerderSelect index="2" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                             热门景点</HerderSelect></Link>
@@ -71,25 +81,15 @@ class ComponentTitle1 extends Component{
                             旅游攻略</HerderSelect></Link>
                         <Link to="/5"><HerderSelect index="5" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                             游记</HerderSelect></Link>
-                        {this.showCenter()}
-                        <div className={this.state.login === '1' ? backShow : backHidden}></div>
-                        <Route exact path="/1" component={ComponentHome}/>
-                        <Route exact path="/2" component={ComponentAll}/>
-                        <Route exact path="/3" component={ComponentAll}/>
+                        {this.showLogin()}
+                        {this.showRegister()}
+                        <Route exact path="/" component={ComponentHome}/>
                         <Route path="/4" component={ComponentAll}/>
+                        <Route path="/6" component={ComponentLogin}/>
+                        <Route path="/7" component={ComponentRegister}/>
+                        <Route path="/5" component={ComponentStrategyPage}/>
                     </div>
                 </Router>
-
-                <div className={this.state.login === '1' ? loginShow : loginHidden}>
-                    <form>
-                        <input type="text" className="login_phone login_total" placeholder="请输入你的手机号"/>
-                        <input type="password" className="login_check login_total" placeholder="请输入你的密码"/>
-                        <br/>
-                        <a href="#" className="login_forget">忘记密码？</a>
-                        <button className="login_ok radius" onClick={this.dealLogin.bind(this, '0')}>关闭</button>
-                        <button className="login_ok radius background">登录</button>
-                    </form>
-                </div>
             </div>
         );
     }

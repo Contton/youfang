@@ -1,0 +1,81 @@
+.page1{
+    width: 1360px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.page1_all{
+    width: 75%;
+    margin: 0 auto;
+}
+.page1_left{
+    width: 65%;
+    height: 300px;
+}
+.page1_title{
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #FF9D00;
+}
+.page1_right{
+    width: 30%;
+    margin-left: 5%;
+    height: 300px;
+}
+.page1_button{
+    width: 30%;
+    margin-right: 3%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 10px;
+}
+.page1_button:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.page1_time{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+.page1_writer{
+    width: 100%;
+    height: 150px;
+    border: 1px solid #FF9D00;
+    margin-top: 30px;
+}
+.page1_head{
+    width: 120px;
+    height: 120px;
+    border-radius: 120px;
+    background-color: #FF9D00;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.page1_head img{
+    width: 100%;
+    height: 100%;
+    border-radius: 120px;
+}
+.page1_name{
+    height: 30%;
+    width: 55%;
+    margin-left: 3%;
+    font-weight: bold;
+    margin-top: 5%;
+    border-right: 1px solid #FF9D00;
+    padding-right: 3%;
+}
+.page1_intro{
+    width: 55%;
+    margin-left: 3%;
+    border-right: 1px solid #FF9D00;
+    padding-right: 3%;
+}
+.page1_connect{
+    font-weight: bold;
+    margin-top: 10%;
+    margin-right: 4%;
+}

@@ -14,7 +14,7 @@ class OneContent extends React.Component{
     render(){
         return(
             <div className="list_one width radius">
-                <div className="list_title color_orange font_weight font18 overflow">{this.props.list.title}</div>
+                <div className="list_title color_orange font_weight font18 overflow">【{this.props.list.title}】</div>
                 <div className="list_content color_grey overflow">{this.props.list.content}</div>
                 <div className="list_picture overflow">{this.listPicture()}</div>
                 <div className="list_time color_grey overflow">{this.props.list.time}</div>
