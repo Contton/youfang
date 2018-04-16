@@ -150,7 +150,6 @@ class CommentContent extends React.Component{
                         </div>
                         <div className="content_travels width">
                         <div className="travels_title font_20 left">热门游记</div>
-                        <div className="travels_more color_white font18 radius left background">写游记</div>
                         <div className="travels_all left">
                             <Article article={this.state.article[0]}/>
                             <Article article={this.state.article[1]}/>

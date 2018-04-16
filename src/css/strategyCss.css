@@ -1,8 +1,10 @@
 .list{
     width: 1360px;
-    padding-top: 60px;
     margin: 0 auto;
     height: 1500px;
+}
+.list_aboute{
+    padding-top: 60px;
 }
 .list_all{
     width: 75%;

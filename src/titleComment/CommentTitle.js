@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import img13 from '../images/13.jpg';
 
-import HerderSelect from '../titleComment/ComponentTitle1Select';
+import HerderSelect from './ComponentTitle1Select';
 
 import {Link } from 'react-router-dom';
 
@@ -11,20 +11,20 @@ class ComponentTitle extends Component{
         this.state = {
             mouse_over:'0',
             clicked:'1',
-            login:'0',
+            login:'1',
         };
     }
     showLogin(){
         if(this.state.login === '0'){
             return <Link to="/login"><div className="title1_login left"><a href="#">登录</a></div></Link>;
-        }else if(this.state.login === '2'){
+        }else if(this.state.login === '1'){
             return <Link to="/8"><div className="title1_login left"><a href="#">个人中心</a></div></Link>;
         }
     }
     showRegister(){
         if(this.state.login === '0'){
             return <Link to="/register"><div className="title1_login title1_register left"><a href="#">注册</a></div></Link>;
-        }else if(this.state.login === '2'){
+        }else if(this.state.login === '1'){
             return null;
         }
     }

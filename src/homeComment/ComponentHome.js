@@ -10,7 +10,7 @@ class ComponentHome extends Component{
                 <div className="route_all">
                     <ComponentPicture/>
                     <ComponentContent/>
-                    <ComponentAboute/>
+                    <ComponentAboute class="width"/>
                 </div>
         );
     }

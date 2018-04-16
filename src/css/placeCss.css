@@ -1,0 +1,30 @@
+.place{
+    width: 1360px;
+    height: 300px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.place_all{
+    width: 75%;
+    margin: 0 auto;
+}
+.place_title{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.place_place{
+    width: 44%;
+    line-height: 40px;
+    margin-left: 4%;
+    margin-top: 30px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.place_link{
+    margin-left: 5%;
+}
+.place_one{
+    height: 300px;
+    background-color: #E5E5E5;
+    margin-top: 50px;
+}

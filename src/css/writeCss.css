@@ -15,3 +15,11 @@
     margin: 0 auto;
     border: 1px solid #E5E5E5;
 }
+.write_intro{
+    width: 96%;
+    height: 50px;
+    margin-bottom: 30px;
+    padding:1% 2% 1% 2%;
+    border: 1px solid #E5E5E5;
+    outline:medium;
+}

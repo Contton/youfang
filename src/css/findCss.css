@@ -1,0 +1,22 @@
+.find{
+    width: 50%;
+    margin-left: 25%;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.find_input{
+    width: 73%;
+    height: 100%;
+    padding-left: 2%;
+    outline:medium;
+    background-color: #E5E5E5;
+    border: none;
+}
+.find_button{
+    width: 24%;
+    margin-left: 1%;
+    height: 100%;
+    border: none;
+    outline:medium;
+}

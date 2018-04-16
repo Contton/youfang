@@ -4,7 +4,7 @@ import React from 'react';
 class CommentAbout extends React.Component{
     render(){
         return(
-            <div className="about_all left width color_grey">
+            <div className="about_all color_grey">
                 <div className="about_us height left">
                     <div className="us_title font_16 font_weight overflow">关于我们</div>
                     <div className="us_info overflow">游方简介</div>

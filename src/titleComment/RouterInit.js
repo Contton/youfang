@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import CommentTitle from '../homeComment/CommentTitle';
+import CommentTitle from './CommentTitle';
 import ComponentHome from '../homeComment/ComponentHome';
 import ComponentAll from '../strategyComment/ComponentAll';
 import ComponentLogin from '../loginComment/ComponentLogin';
 import ComponentRegister from '../registerComment/ComponentRegister';
 import ComponentStrategyPage from '../strategyPageComment/ComponentStrategyPage';
 import ComponentWrite from '../writeComment/ComponentWrite';
+import ComponentPlace from '../placeComment/ComponentAll';
 
 class RouterInit extends Component{
     constructor(props){
@@ -48,6 +49,7 @@ class RouterInit extends Component{
                             <div>
                              <Route path="/home" component={CommentTitle}/>
                              <Route path="/home/index" component={ComponentHome}/>
+                             <Route path="/home/2" component={ComponentPlace}/>
                              <Route path="/home/4" component={ComponentAll}/>
                              <Route path="/home/5" component={ComponentStrategyPage}/>
                              <Route path="/home/6" component={ComponentWrite}/>
