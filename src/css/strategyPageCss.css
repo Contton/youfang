@@ -16,7 +16,7 @@
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 15px;
-    border-bottom: 1px solid #FF9D00;
+    border-bottom: 1px solid #E5E5E5;
 }
 .page1_right{
     width: 30%;
@@ -43,14 +43,13 @@
 .page1_writer{
     width: 100%;
     height: 150px;
-    border: 1px solid #FF9D00;
+    border: 1px solid #E5E5E5;
     margin-top: 30px;
 }
 .page1_head{
     width: 120px;
     height: 120px;
     border-radius: 120px;
-    background-color: #FF9D00;
     margin-top: 15px;
     margin-left: 15px;
 }
@@ -59,23 +58,59 @@
     height: 100%;
     border-radius: 120px;
 }
+.page1_head img:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
 .page1_name{
-    height: 30%;
+    height: 25%;
     width: 55%;
     margin-left: 3%;
     font-weight: bold;
-    margin-top: 5%;
-    border-right: 1px solid #FF9D00;
+    margin-top: 3%;
+    border-right: 1px solid #E5E5E5;
     padding-right: 3%;
+}
+.page1_name:hover{
+    text-decoration: underline;
+    color: #FF9D00;
+    cursor: pointer;
 }
 .page1_intro{
     width: 55%;
+    height: 35%;
     margin-left: 3%;
-    border-right: 1px solid #FF9D00;
+    border-right: 1px solid #E5E5E5;
+    padding-right: 3%;
+}
+.page1_like{
+    width: 55%;
+    margin-left: 3%;
+    border-right: 1px solid #E5E5E5;
     padding-right: 3%;
 }
 .page1_connect{
     font-weight: bold;
     margin-top: 10%;
     margin-right: 4%;
+}
+.page1_connect:hover{
+    text-decoration: underline;
+    color: #FF9D00;
+    cursor: pointer;
+}
+.page1_content{
+    width: 100%;
+    height: 200px;
+    background-color: #E5E5E5;
+    margin-top: 30px;
+}
+.page1_synopsis{
+    width: 100%;
+    text-indent: 2em;
+}
+.page1_elevator{
+    width: 100%;
+    margin-top: 30px;
 }

@@ -18,22 +18,15 @@ class ComponentTitle extends Component{
         if(this.state.login === '0'){
             return <Link to="/login"><div className="title1_login left"><a href="#">登录</a></div></Link>;
         }else if(this.state.login === '2'){
-            return <Link to="/8"><div className="title1_login left">个人中心</div></Link>;
+            return <Link to="/8"><div className="title1_login left"><a href="#">个人中心</a></div></Link>;
         }
     }
     showRegister(){
         if(this.state.login === '0'){
             return <Link to="/register"><div className="title1_login title1_register left"><a href="#">注册</a></div></Link>;
         }else if(this.state.login === '2'){
-            return <Link to="/8"><HerderSelect index="8"
-                                               changeMouserOver={this.changeMouserOver.bind(this)}
-                                               changeClicked={this.changeClicked.bind(this)}
-                                               selected={this.state.clicked} mouse_over={this.state.mouse_over}
-                                               left={true} end={true}>个人中心</HerderSelect></Link>;
+            return null;
         }
-    }
-    dealLogin(state, event){
-        this.setState({login:state});
     }
     changeClicked(index){
         this.setState({clicked:index});
@@ -41,7 +34,6 @@ class ComponentTitle extends Component{
     changeMouserOver(index){
         this.setState({mouse_over:index});
     }
-
     render(){
         return(
             <div>
@@ -56,6 +48,8 @@ class ComponentTitle extends Component{
                     旅游攻略</HerderSelect></Link>
                 <Link to="/home/5"><HerderSelect index="5" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                     游记</HerderSelect></Link>
+                <Link to="/home/6"><HerderSelect index="6" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
+                    写游记</HerderSelect></Link>
                 {this.showLogin()}
                 {this.showRegister()}
             </div>

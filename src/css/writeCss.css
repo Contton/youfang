@@ -1,0 +1,17 @@
+.write{
+    width: 1360px;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+.write_title{
+    height: 50px;
+    padding-left: 2%;
+    border: 1px solid #E5E5E5;
+    margin-bottom: 30px;
+    width: 98%;
+    outline:medium;
+}
+.write_content{
+    margin: 0 auto;
+    border: 1px solid #E5E5E5;
+}

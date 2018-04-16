@@ -8,11 +8,7 @@ import ComponentAll from '../strategyComment/ComponentAll';
 import ComponentLogin from '../loginComment/ComponentLogin';
 import ComponentRegister from '../registerComment/ComponentRegister';
 import ComponentStrategyPage from '../strategyPageComment/ComponentStrategyPage';
-import classNames from 'classnames/bind';
-
-import styles from '../css/title1Css.css';
-
-let style = classNames.bind(styles);
+import ComponentWrite from '../writeComment/ComponentWrite';
 
 class RouterInit extends Component{
     constructor(props){
@@ -54,6 +50,7 @@ class RouterInit extends Component{
                              <Route path="/home/index" component={ComponentHome}/>
                              <Route path="/home/4" component={ComponentAll}/>
                              <Route path="/home/5" component={ComponentStrategyPage}/>
+                             <Route path="/home/6" component={ComponentWrite}/>
                              <Redirect path="/" to={{pathname: '/home/index'}} />
                             </div>
                         </Route>

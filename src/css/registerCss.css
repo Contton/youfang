@@ -37,10 +37,13 @@
     padding-left: 2%;
 }
 .register_get{
-    width: 72%;
+    width: 28.5%;
     background-color: #FF9D00;
     margin-top: 7%;
     color: white;
+}
+.register_width{
+    width: 72%;
 }
 .register_check{
     margin-top: 7%;
