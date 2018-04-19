@@ -1,8 +1,8 @@
 import React from 'react';
-import img9 from '../images/9.jpg';
-import img10 from '../images/10.jpg';
-import img11 from '../images/11.jpg';
-import img12 from '../images/12.jpg';
+import img9 from '../images/sp1.jpeg';
+import img10 from '../images/sp2.jpeg';
+import img11 from '../images/sp3.jpeg';
+import img12 from '../images/sp4.png';
 import classNames from 'classnames/bind';
 import styles from '../css/pictureCss.css';
 
@@ -63,7 +63,7 @@ class CommentPicture extends React.Component{
                     <li className={this.state.index === 3 ? show : hidden}><img src={img12}/></li>
                 </ul>
                 <div className="picture_find radius">
-                    <input className="picture_input radius font_18" type="text" placeholder="搜索城市，大学，游记，攻略等"/><input value="搜索" className="picture_button radius font_18 color_white background" type="button"/>
+                    <input className="picture_input radius font_14" type="text" placeholder="搜索城市，大学，游记，攻略等"/><input value="搜索" className="picture_button radius font_14 color_white background" type="button"/>
                 </div>
                 <div id="prev" class="arrow" onClick={this.clickLast.bind(this)}>&lt;</div>
                 <div id="next" class="arrow" onClick={this.clickNext.bind(this)}>&gt;</div>

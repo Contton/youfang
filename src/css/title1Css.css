@@ -3,8 +3,10 @@
     height: 60px;
 }
 .title1_logo{
-    margin-left: 30%;
+    margin-left: 25%;
     height: 58px;
+    text-align: center;
+    line-height: 58px;
 }
 .title1_logo img{
     height: 100%;
@@ -16,12 +18,14 @@
     margin-right: 2%;
 }
 .headerCommon{
+    color: black;
     display:flex;/*Flex布局*/
     display: -webkit-flex; /* Safari */
     align-items:center;/*指定垂直居中*/
     padding: 15px;
     height: 25px;
     border-bottom:2px solid white;
+    font-size: 14px;
 }
 .onclickStyle{
     color: white;
@@ -37,6 +41,15 @@
     border-bottom:3px solid white;
     color: #3c3c3c;
 }
+
+.headImg{
+    padding-top: 10px;
+}
+
+.headImg img{
+    border-radius: 50%;
+}
+
 .title1_login{
     line-height: 53px;
     margin-left: 5%;

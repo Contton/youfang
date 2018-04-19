@@ -5,7 +5,7 @@ import $ from 'jquery';
 class Traveller extends React.Component{
     render(){
         return(
-            <div className="traveller_all left width">
+            <div className="traveller_all left width font_14">
                 <img src={this.props.traveller.picture}/>
                 <div className="traveller_name font18 color_orange">{this.props.traveller.name}</div>
                 <div className="traveller_intro color_grey">{this.props.traveller.autograph}</div>
@@ -27,7 +27,7 @@ class Strategy extends React.Component{
 class Place extends React.Component{
     render(){
         return(
-            <div className="content_place left">
+            <div className="content_place left font_14">
                 <img src={this.props.place.picture}/>
                 <div className="traveller_name font18 color_orange">{this.props.place.name}</div>
                 <div className="traveller_intro color_grey">{this.props.place.introduce}</div>
@@ -38,7 +38,7 @@ class Place extends React.Component{
 class Article extends React.Component{
     render(){
         return(
-            <div className="travels_one width">
+            <div className="travels_one width font_14">
                 <div className="one_picture left height"><img src={this.props.article.picture}/></div>
                 <div className="one_title font_18 left color_orange">{this.props.article.title}</div>
                 <div className="one_content color_grey left">{this.props.article.content}</div>
@@ -127,12 +127,12 @@ class CommentContent extends React.Component{
                 <div className="content_all">
                     <div className="content_left left">
                         <div className="content_traveller width">
-                            <div className="traveller_title font_20 left">热门博主</div>
+                            <div className="traveller_title font_16 left">热门博主</div>
                             <div className="traveller_more color_grey left">更多博主</div>
                             <Traveller traveller={this.state.traveller}/>
                         </div>
                         <div className="content_strategy width">
-                            <div className="strategy_title font_20 left">旅游攻略推荐</div>
+                            <div className="strategy_title font_16 left">旅游攻略推荐</div>
                             <div className="strategy_more color_grey left">更多攻略</div>
                             <Strategy strategy={this.state.strategy[0]}/>
                             <Strategy strategy={this.state.strategy[1]}/>
@@ -140,7 +140,7 @@ class CommentContent extends React.Component{
                     </div>
                     <div className="content_right left height">
                         <div className="content_popular width">
-                            <div className="popular_title font_20 left">热门景点</div>
+                            <div className="popular_title font_16 left">热门景点</div>
                             <div className="popular_more color_grey left">更多景点</div>
                             <div className="content_places left height width">
                                 <Place place={this.state.place[0]}/>
@@ -149,7 +149,7 @@ class CommentContent extends React.Component{
                             </div>
                         </div>
                         <div className="content_travels width">
-                        <div className="travels_title font_20 left">热门游记</div>
+                        <div className="travels_title font_16 left">热门游记</div>
                         <div className="travels_all left">
                             <Article article={this.state.article[0]}/>
                             <Article article={this.state.article[1]}/>

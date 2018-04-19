@@ -14,12 +14,14 @@ class CommentBox extends React.Component {
         }
         return (
             <div className="write">
-                <input className="write_title radius font_18" type="text" placeholder="请在此处填写题目"/>
-                <input className="write_title radius font_18" type="text" placeholder="请在此处填写目的地"/>
-                <textarea className="write_intro radius font_18" placeholder="请在此处填写简介"></textarea>
-                <div className="write_content width">
-                    <div className="demo">
-                        <BraftEditor {...editorProps}/>
+                <div className="write_div">
+                    <input className="write_title radius font_14" type="text" placeholder="请在此处填写题目"/>
+                    <input className="write_title radius font_14" type="text" placeholder="请在此处填写目的地"/>
+                    <textarea className="write_intro radius font_14" placeholder="请在此处填写简介"></textarea>
+                    <div className="write_content width">
+                        <div className="demo">
+                            <BraftEditor {...editorProps}/>
+                        </div>
                     </div>
                 </div>
             </div>
