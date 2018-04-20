@@ -12,6 +12,7 @@ import './css/strategyPageCss.css';
 import './css/writeCss.css';
 import './css/placeCss.css';
 import './css/findCss.css';
+import './css/userCss.css';
 import CommentBox from './allComment/ComponentAll';
 
 ReactDOM.render(

@@ -10,6 +10,7 @@ import ComponentRegister from '../registerComment/ComponentRegister';
 import ComponentStrategyPage from '../strategyPageComment/ComponentStrategyPage';
 import ComponentWrite from '../writeComment/ComponentWrite';
 import ComponentPlace from '../placeComment/ComponentAll';
+import ComponentUser from '../userComment/ComponentUser';
 
 class RouterInit extends Component{
     constructor(props){
@@ -53,6 +54,7 @@ class RouterInit extends Component{
                              <Route path="/home/4" component={ComponentAll}/>
                              <Route path="/home/5" component={ComponentStrategyPage}/>
                              <Route path="/home/6" component={ComponentWrite}/>
+                             <Route path="/home/userCenter" component={ComponentUser}/>
                              <Redirect path="/" to={{pathname: '/home/index'}} />
                             </div>
                         </Route>

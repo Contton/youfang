@@ -1,0 +1,50 @@
+.user{
+    width: 1360px;
+    padding-top: 65px;
+    margin: 0 auto;
+}
+.user_all{
+    width: 75%;
+    margin-left: 12.5%;
+}
+.user_left{
+    width: 29%;
+}
+.user_info{
+    width: 100%;
+    height: 260px;
+    border: 1px solid #E5E5E5;
+}
+.user_left img{
+    width: 150px;
+    margin-left: 25%;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+.user_name{
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+.user_change{
+    width: 80%;
+    margin-left: 10%;
+    background-color: #E5E5E5;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+.user_right{
+    width: 69%;
+}
+.user_nav{
+    height: 50px;
+    border: 1px solid #E5E5E5;
+}
+.user_choose{
+    width: 15%;
+    line-height: 50px;
+    text-align: center;
+    border-right: 1px solid #E5E5E5;
+}

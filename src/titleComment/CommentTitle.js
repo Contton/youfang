@@ -29,7 +29,7 @@ class ComponentTitle extends Component{
             return <Link to="/login"><div className="title1_login left">登录</div></Link>;
         }else if(this.state.userInfo != null){
             return (
-                <Link to="/8">
+                <Link to="/home/userCenter">
                     <div className="title1_login left">
                         <div className="headImg left" ><img src={headerImg}/>&nbsp;&nbsp;</div>
                         {this.state.userInfo.nickName}
