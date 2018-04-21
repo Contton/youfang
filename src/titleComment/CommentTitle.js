@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import img13 from '../images/13.jpg';
 import headerImg from  '../images/headerImg.jpeg'
 
 import HerderSelect from './ComponentTitle1Select';
