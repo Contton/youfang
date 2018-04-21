@@ -57,13 +57,14 @@ class ComponentUser extends React.Component{
                     </div>
                     <div className="user_right right">
                         <Router>
-                            <div className="user_part width">
+                            <div className="width">
                                 <div className="user_nav width left">
                                     <Link to="/home/userCenter/information"><div className="left user_choose height">我的资料</div></Link>
                                     <Link to="/home/userCenter/travel"><div className="left user_choose height">我的游记</div></Link>
                                     <Link to="/home/userCenter/strategy"><div className="left user_choose height">我的攻略</div></Link>
                                 </div>
                                 <Route exact path="/home/userCenter/information" component={ComponentUserInfor}/>
+                                <Route exact path="/home/userCenter/travel" component={ComponentTravel}/>
                             </div>
                         </Router>
                     </div>
@@ -76,8 +77,30 @@ class ComponentUser extends React.Component{
 class ComponentUserInfor extends React.Component{
     render(){
         return(
-            <div className="userInfo_all">
-                wode ziliao
+            <div className="userInfo_all width">
+                <div className="userInfo_title width font_20">修改个人资料</div>
+                用户昵称：&nbsp;&nbsp;<input type="text" className="userInfo_one"></input>
+                <div className="userInfo_sex width">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：&nbsp;&nbsp;
+                    <input className="userInfo_man" type="radio" name="sex" value="man"/>男
+                    <input className="userInfo_man" type="radio" name="sex" value="woman"/>女
+                    <input className="userInfo_man" type="radio" name="sex" value="undifened"/>不明
+                </div>
+                生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：&nbsp;&nbsp;&nbsp;<input className="userInfo_one" type="date"/><br/>
+                现居住地：&nbsp;&nbsp;<input className="userInfo_one" type="text"/><br/>
+                曾居住地：&nbsp;&nbsp;<input className="userInfo_one" type="text"/><br/>
+                个性签名：&nbsp;&nbsp;<input className="userInfo_one userInfo_dis" type="text" placeholder="不得超过55个字"/>
+            </div>
+        );
+    }
+}
+
+class ComponentTravel extends React.Component{
+    render(){
+        return(
+            <div className="userInfo_all width">
+                <div className="userTravel_title">
+
+                </div>
             </div>
         );
     }
