@@ -2,6 +2,7 @@
     width: 1360px;
     padding-top: 65px;
     margin: 0 auto;
+    height: 700px;
 }
 .user_all{
     width: 75%;
@@ -73,7 +74,10 @@
 }
 .userInfo_all{
     padding-top: 60px;
-    padding-left: 2%;
+    border: 1px solid #E5E5E5;
+}
+.userInfo_space{
+    margin-left: 2%;
 }
 .userInfo_title{
     line-height: 50px;
@@ -96,7 +100,7 @@
     height: 30px;
     margin-bottom: 20px;
     border: none;
-    background-color: #E5E5E5;
+    border: 1px solid #E5E5E5;
     border-radius: 5px;
     padding-left: 2%;
 }
@@ -104,7 +108,41 @@
     width: 80%;
 }
 .userTravel_title{
-    width: 96%;
+    width: 100%;
     height: 50px;
-    border: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+.userInfo_ok{
+    outline: medium;
+    border: none;
+    background-color: #FF9D00;
+    height: 30px;
+    width: 20%;
+    margin-left: 77%;
+    margin-bottom: 20px;
+}
+.userInfo_ok:hover{
+    cursor: pointer;
+}
+.userTravel_count{
+    width: 20%;
+    line-height: 50px;
+}
+.userTravel_one{
+    width: 88%;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #E5E5E5;
+    height: 100px;
+    padding: 1% 1% 1% 1%;
+}
+.userTravel_article{
+    margin-top: 1%;
+}
+.userTravel_time{
+    margin-right: 1%;
+}
+.userTravel_read{
+    margin-right: 5%;
 }

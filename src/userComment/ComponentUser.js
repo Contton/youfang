@@ -7,7 +7,7 @@ class ComponentUser extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            unchang:'请填写个人简介',
+            unchang:'修改个人简介',
             changed:'保存',
             change:false,
             fans:0,
@@ -79,27 +79,84 @@ class ComponentUserInfor extends React.Component{
         return(
             <div className="userInfo_all width">
                 <div className="userInfo_title width font_20">修改个人资料</div>
-                用户昵称：&nbsp;&nbsp;<input type="text" className="userInfo_one"></input>
-                <div className="userInfo_sex width">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：&nbsp;&nbsp;
+                <span className="userInfo_space">用户昵称：&nbsp;&nbsp;</span><input type="text" className="userInfo_one"></input>
+                <div className="userInfo_sex width"><span className="userInfo_space">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：&nbsp;&nbsp;</span>
                     <input className="userInfo_man" type="radio" name="sex" value="man"/>男
                     <input className="userInfo_man" type="radio" name="sex" value="woman"/>女
                     <input className="userInfo_man" type="radio" name="sex" value="undifened"/>不明
                 </div>
-                生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：&nbsp;&nbsp;&nbsp;<input className="userInfo_one" type="date"/><br/>
-                现居住地：&nbsp;&nbsp;<input className="userInfo_one" type="text"/><br/>
-                曾居住地：&nbsp;&nbsp;<input className="userInfo_one" type="text"/><br/>
-                个性签名：&nbsp;&nbsp;<input className="userInfo_one userInfo_dis" type="text" placeholder="不得超过55个字"/>
+                <span className="userInfo_space">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：&nbsp;&nbsp;&nbsp;</span><input className="userInfo_one" type="date"/><br/>
+                <span className="userInfo_space">现居住地：&nbsp;&nbsp;</span><input className="userInfo_one" type="text"/><br/>
+                <span className="userInfo_space">曾居住地：&nbsp;&nbsp;</span><input className="userInfo_one" type="text"/><br/>
+                <span className="userInfo_space">个性签名：&nbsp;&nbsp;</span><input className="userInfo_one userInfo_dis" type="text" placeholder="不得超过55个字"/>
+                <input type="button" className="userInfo_ok radius color_white font_16" value="确认修改"/>
             </div>
         );
     }
 }
 
 class ComponentTravel extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            travel_count:30,
+            travel_answer:549,
+            travel_read:1035,
+        };
+    }
     render(){
         return(
             <div className="userInfo_all width">
                 <div className="userTravel_title">
-
+                    <div className="userTravel_count right">
+                        回复：<span>{this.state.travel_answer}</span>
+                    </div>
+                    <div className="userTravel_count right">
+                        阅读：<span>{this.state.travel_read}</span>
+                    </div>
+                    <div className="userTravel_count right">
+                        游记：<span>{this.state.travel_count}</span>
+                    </div>
+                </div>
+                <div className="width">
+                    <div className="userTravel_one radius">
+                        <div className="font_20 color_orange">
+                            走进安娜普尔纳的遗世天堂
+                        </div>
+                        <div className="userTravel_article">
+                            即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。
+                        </div>
+                        <div className="userTravel_time userTravel_article right">2018-4-2</div>
+                        <div className="userTravel_read userTravel_article right">阅读：<span>223</span></div>
+                    </div>
+                    <div className="userTravel_one radius">
+                        <div className="font_20 color_orange">
+                            走进安娜普尔纳的遗世天堂
+                        </div>
+                        <div className="userTravel_article">
+                            即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。
+                        </div>
+                        <div className="userTravel_time userTravel_article right">2018-4-2</div>
+                        <div className="userTravel_read userTravel_article right">阅读：<span>223</span></div>
+                    </div><div className="userTravel_one radius">
+                    <div className="font_20 color_orange">
+                        走进安娜普尔纳的遗世天堂
+                    </div>
+                    <div className="userTravel_article">
+                        即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。
+                    </div>
+                    <div className="userTravel_time userTravel_article right">2018-4-2</div>
+                    <div className="userTravel_read userTravel_article right">阅读：<span>223</span></div>
+                </div><div className="userTravel_one radius">
+                    <div className="font_20 color_orange">
+                        走进安娜普尔纳的遗世天堂
+                    </div>
+                    <div className="userTravel_article">
+                        即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。
+                    </div>
+                    <div className="userTravel_time userTravel_article right">2018-4-2</div>
+                    <div className="userTravel_read userTravel_article right">阅读：<span>223</span></div>
+                </div>
                 </div>
             </div>
         );

@@ -4,6 +4,7 @@ import { Router, Route, Redirect, Link } from 'react-router-dom';
 class ComponentPlace extends React.Component{
     render(){
         return(
+            <div className="place_another">
             <div className="place_all">
                 <div className="place_title font_20">热门目的地</div>
                 <div className="place_place left">北京
@@ -30,6 +31,7 @@ class ComponentPlace extends React.Component{
                 </div>
                 <Route path="/home/2/beijing" component={BeiJing}/>
             </div>
+            </div>
         );
     }
 }
@@ -37,7 +39,10 @@ class BeiJing extends React.Component{
     render(){
         return(
             <div className="place_one width left">
-
+                <div className="place_every radius">
+                    <div className="place_name width font_20 color_orange">天安门</div>
+                    <div className="place_content width">天安门，坐落在中华人民共和国首都北京市的中心，以杰出的建筑艺术和特殊的政治地位为世人所瞩目。</div>
+                </div>
             </div>
         );
     }

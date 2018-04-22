@@ -1,12 +1,14 @@
 .place{
-    width: 1360px;
-    height: 300px;
-    margin: 0 auto;
     padding-top: 60px;
+}
+.place_another{
+    width: 1360px;
+    margin: 0 auto;
 }
 .place_all{
     width: 75%;
     margin: 0 auto;
+    height: 1000px;
 }
 .place_title{
     width: 100%;
@@ -15,7 +17,7 @@
 }
 .place_place{
     width: 44%;
-    line-height: 40px;
+    line-height: 35px;
     margin-left: 4%;
     margin-top: 30px;
     border-bottom: 1px solid #E5E5E5;
@@ -24,7 +26,19 @@
     margin-left: 5%;
 }
 .place_one{
-    height: 300px;
-    background-color: #E5E5E5;
+    height: 800px;
     margin-top: 50px;
+}
+.place_every{
+    width: 88%;
+    margin-left: 5%;
+    height: 100px;
+    border: 2px solid #E5E5E5;
+    padding: 1% 1% 1% 1%;
+}
+.place_name{
+    line-height: 30px;
+}
+.place_content{
+    margin-top: 1%;
 }

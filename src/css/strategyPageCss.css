@@ -101,16 +101,27 @@
     cursor: pointer;
 }
 .page1_content{
-    width: 100%;
+    width: 98%;
+    padding: 1% 1% 1% 1%;
     height: 200px;
-    background-color: #E5E5E5;
     margin-top: 30px;
 }
 .page1_synopsis{
-    width: 100%;
     text-indent: 2em;
 }
-.page1_elevator{
-    width: 100%;
-    margin-top: 30px;
+.page1_more{
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 10%;
+}
+.page1_moreTitle{
+    text-align: center;
+}
+.page1_moreOne{
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+.page1_moreOne:hover{
+    text-decoration: underline;
 }

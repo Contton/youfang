@@ -39,13 +39,13 @@ class Article extends React.Component{
     render(){
         return(
             <div className="travels_one width font_14">
-                <div className="one_picture left height"><img src={this.props.article.picture}/></div>
+                <div className="one_picture left height"><img src={this.props.article.coverImageUrl}/></div>
                 <div className="one_title font_18 left color_orange">{this.props.article.title}</div>
-                <div className="one_content color_grey left">{this.props.article.content}</div>
+                <div className="one_content color_grey left">{this.props.article.introduction}</div>
                 <div className="one_traveller left">
-                    <div className="one_info left height">{this.props.article.place}</div>
-                    <div className="one_info left height writer">{this.props.article.author}</div>
-                    <button className="one_button color_white radius left height background">顶</button>
+                    <div className="one_info left height">{this.props.article.university.universityName}</div>
+                    <div className="one_info left height writer">{this.props.article.author.nickName}</div>
+                    <button className="one_button color_white radius left height background">{this.props.article.praiseCount}</button>
                 </div>
             </div>
         );
@@ -152,8 +152,8 @@ class CommentContent extends React.Component{
                         <div className="travels_title font_16 left">热门游记</div>
                         <div className="travels_all left">
                             <Article article={this.state.article[0]}/>
-                            <Article article={this.state.article[1]}/>
-                            <Article article={this.state.article[2]}/>
+                            <Article article={this.state.article[0]}/>
+                            <Article article={this.state.article[0]}/>
                         </div>
                     </div>
                     </div>

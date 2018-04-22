@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import ComponentFind from './ComponentFind';
-import ComponentPlace from './ComponentPlace';
+import ComponentUser from './ComponentUser';
 import ComponentAbout from '../abouteComment/CommentAbout';
 
 class ComponentAll extends React.Component{
     render(){
         return(
-            <div className="place">
-                <ComponentFind/>
-                <ComponentPlace/>
+            <div>
+                <ComponentUser/>
                 <ComponentAbout/>
             </div>
         );
     }
 }
+
 export default ComponentAll;

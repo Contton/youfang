@@ -10,7 +10,7 @@ import ComponentRegister from '../registerComment/ComponentRegister';
 import ComponentStrategyPage from '../strategyPageComment/ComponentStrategyPage';
 import ComponentWrite from '../writeComment/ComponentWrite';
 import ComponentPlace from '../placeComment/ComponentAll';
-import ComponentUser from '../userComment/ComponentUser';
+import ComponentUser from '../userComment/ComponentAll';
 
 class RouterInit extends Component{
     constructor(props){
