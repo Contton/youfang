@@ -62,6 +62,7 @@
     padding-left: 3%;
     display: none;
     margin-bottom: 10px;
+    font-size: 14px;
 }
 .display_show{
     display: inline;
@@ -73,8 +74,8 @@
     line-height: 40px;
 }
 .userInfo_all{
-    padding-top: 60px;
     border: 1px solid #E5E5E5;
+    float: left;
 }
 .userInfo_space{
     margin-left: 2%;
@@ -133,16 +134,73 @@
     margin-left: 5%;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 2px solid #E5E5E5;
+    border: 1px solid #E5E5E5;
     height: 100px;
     padding: 1% 1% 1% 1%;
 }
-.userTravel_article{
+.userTravel_one:hover{
+    box-shadow: 0 0 5px 1px #999999;
+    cursor: pointer;
+}
+.userTravel_one img{
+    width: 25%;
+    height: 100%;
+    float: left;
+    margin-right: 1%;
+    border-radius: 5px;
+}
+.userTravel_content{
+    width: 74%;
     margin-top: 1%;
 }
 .userTravel_time{
-    margin-right: 1%;
+    margin-left: 5%;
 }
-.userTravel_read{
-    margin-right: 5%;
+.userFans_one{
+    margin-top: 10px;
+    width: 30%;
+    height: 260px;
+    border: 1px solid #E5E5E5;
+    margin-left: 2%;
+    margin-bottom: 10px;
+}
+.userFans_one:hover{
+    box-shadow: 0 0 5px 1px #999999;
+    cursor: pointer;
+}
+.userFans_one img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-left: 25%;
+    margin-top: 10px;
+}
+.userFans_name{
+    margin: 0 auto;
+    text-align: center;
+}
+.userFans_travel{
+    width: 30%;
+    line-height: 30px;
+    margin-top: 5%;
+}
+.userFans_number{
+    text-align: center;
+}
+.userFans_left{
+    margin-left: 5%;
+}
+.userFans_border{
+    border-left: 1px solid #E5E5E5;
+}
+.userFans_button{
+    border: none;
+    outline:medium;
+    width: 30%;
+    height: 12%;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+.userFans_margin{
+    margin-left: 10%;
 }

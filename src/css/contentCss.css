@@ -100,9 +100,15 @@
 
 .popular_more{
     width: 9%;
-    height: 10%;
 }
-
+.travels_more{
+    margin-right: 2%;
+}
+.travels_more:hover{
+    color: #FF9D00;
+    cursor: pointer;
+    text-decoration: underline;
+}
 .popular_more:hover{
     color: #FF9D00;
     cursor: pointer;
