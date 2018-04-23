@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import img1 from '../images/1.jpg';
-import classNames from 'classnames';
 import img2 from '../images/2.jpg';
+import head from '../images/head.jpg';
+import classNames from 'classnames';
+import headerImg from  '../images/headerImg.jpeg'
 
 class ComponentUser extends React.Component{
     constructor(props){
@@ -43,35 +45,60 @@ class ComponentUser extends React.Component{
             user_discribe: true,
             display_show: false,
         });
+        let headerSelectStyle = classNames({
+            TopTitleCommon:true,
+            left:true,
+        });
         return(
-            <div className="user">
-                <div className="user_all">
-                    <div className="user_left left">
-                        <div className="user_info">
-                            <img src={img1}/>
-                            <div className="user_name font_16">佟丽娅</div>
-                            <div onClick={this.dealDiscribe.bind(this)} className="user_change color_grey">{this.state.change === false ? this.state.unchang : this.state.changed}</div>
-                            <input type="text" className={this.state.change === false ? discribeHidden : discribeShow}></input>
-                            <div onMouseOver={this.dealFansOver.bind(this, 1)} onMouseOut={this.dealFansOut.bind(this, 1)} className="user_fans left font_14">{this.state.fans === 0 ? '粉丝' : this.state.fans_number}</div>
-                            <div onMouseOver={this.dealFansOver.bind(this, 2)} onMouseOut={this.dealFansOut.bind(this, 2)} className="user_fans left font_14">{this.state.focus === 0 ? '关注' : this.state.focus_number}</div>
+            <div className="user_com">
+                <div className="TopTitle_com">
+                    <div className="TopTitle_com_div">
+                        <div className="TopTitle">
+                            <div className={headerSelectStyle}>
+                                游方
+                            </div>
+                            <div className={headerSelectStyle}>
+                                <Link className="TopTitleCommonFont" to="/home/index">首页</Link>
+                            </div>
+                            <div className={headerSelectStyle}>
+                                <Link className="TopTitleCommonFont" to="/home/index">组队</Link>
+                            </div>
+                            <div className={headerSelectStyle}>
+                                <Link className="TopTitleCommonFont" to="/home/index">问答</Link>
+                            </div>
+
                         </div>
                     </div>
-                    <div className="user_right right">
-                        <Router>
-                            <div className="width">
-                                <div className="user_nav width left">
-                                    <Link to="/home/userCenter/information"><div className="left user_choose height font_14">我的资料</div></Link>
-                                    <Link to="/home/userCenter/travel"><div className="left user_choose height font_14">我的游记</div></Link>
-                                    <Link to="/home/userCenter/strategy"><div className="left user_choose height font_14">我的攻略</div></Link>
-                                    <Link to="/home/userCenter/collection"><div className="left user_choose height font_14">我的收藏</div></Link>
-                                    <Link to="/home/userCenter/fans"><div className="left user_choose height font_14">我的粉丝</div></Link>
-                                    <Link to="/home/userCenter/follow"><div className="left user_choose height font_14">我的关注</div></Link>
-                                </div>
-                                <Route exact path="/home/userCenter/information" component={ComponentUserInfor}/>
-                                <Route path="/home/userCenter/travel" component={ComponentTravel}/>
-                                <Route path="/home/userCenter/fans" component={ComponentFans}/>
+                </div>
+                <div className="user">
+                    <div className="user_all">
+                        <div className="user_left left">
+                            <div className="user_info left">
+                                <img src={head}/>
+                                <div className="user_name font_16">佟丽娅</div>
+                                <div onClick={this.dealDiscribe.bind(this)} className="user_change font_14">{this.state.change === false ? this.state.unchang : this.state.changed}</div>
+                                <input type="text" className={this.state.change === false ? discribeHidden : discribeShow}/>
+                                <div onMouseOver={this.dealFansOver.bind(this, 1)} onMouseOut={this.dealFansOut.bind(this, 1)} className="user_fans left font_14 fans_border_right">{this.state.fans === 0 ? '粉丝' : this.state.fans_number}</div>
+                                <div onMouseOver={this.dealFansOver.bind(this, 2)} onMouseOut={this.dealFansOut.bind(this, 2)} className="user_fans left font_14">{this.state.focus === 0 ? '关注' : this.state.focus_number}</div>
                             </div>
-                        </Router>
+                        </div>
+                        <div className="user_right right">
+                            <Router>
+                                <div className="width">
+                                    <div className="user_nav width left">
+                                        <Link to="/userCenter/information"><div className="left user_choose height font_14">我的资料</div></Link>
+                                        <Link to="/userCenter/travel"><div className="left user_choose height font_14">我的游记</div></Link>
+                                        <Link to="/userCenter/strategy"><div className="left user_choose height font_14">我的攻略</div></Link>
+                                        <Link to="/userCenter/collection"><div className="left user_choose height font_14">我的收藏</div></Link>
+                                        <Link to="/userCenter/fans"><div className="left user_choose height font_14">我的粉丝</div></Link>
+                                        <Link to="/userCenter/follow"><div className="left user_choose height font_14">我的关注</div></Link>
+                                    </div>
+                                    <Route path="/userCenter/information" component={ComponentUserInfor}/>
+                                    <Route exact path="/userCenter/travel" component={ComponentTravel}/>
+                                    <Route path="/userCenter/fans" component={ComponentFans}/>
+                                </div>
+                            </Router>
+                        </div>
                     </div>
                 </div>
             </div>

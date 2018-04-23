@@ -55,10 +55,10 @@ class RouterInit extends Component{
                              <Route path="/home/hotTravel" component={ComponentStrategyPage}/>
                              <Route path="/home/writeStrategy"/>
                              <Route path="/home/writeTravel" component={ComponentWrite}/>
-                             <Route path="/home/userCenter" component={ComponentUser}/>
                              <Redirect path="/" to={{pathname: '/home/index'}} />
                             </div>
                         </Route>
+                        <Route path="/userCenter" component={ComponentUser}/>
                         <Route path="/login" component={ComponentLogin}/>
                         <Route path="/register" component={ComponentRegister}/>
                     </div>

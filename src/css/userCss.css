@@ -4,6 +4,45 @@
     margin: 0 auto;
     height: 700px;
 }
+
+.user_com{
+    background-color: #EFEFEF;
+}
+
+.TopTitle_com{
+    width: 100%;
+    background: #222427;
+}
+.TopTitle_com_div{
+    width: 1360px;
+    margin:0 auto;
+}
+
+.TopTitleCommon{
+    line-height:50px;
+    margin-right: 50px;
+    color: white;
+}
+
+.TopTitleCommonFont{
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.TopTitle{
+    width: 700px;
+    height: 50px;
+    margin-left: 12.5%;
+}
+
+.overTopTitle{
+    background: #000;
+}
+.outTopTitle{
+    background: #222427;
+}
+
 .user_all{
     width: 75%;
     margin-left: 12.5%;
@@ -12,6 +51,7 @@
     width: 29%;
 }
 .user_info{
+    background-color: #fff;
     width: 100%;
     border: 1px solid #E5E5E5;
 }
@@ -35,12 +75,14 @@
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    color: #666666;
 }
 .user_change:hover{
     cursor: pointer;
 }
 .user_right{
     width: 69%;
+    background-color: #fff;
 }
 .user_nav{
     height: 50px;
@@ -68,11 +110,17 @@
     display: inline;
 }
 .user_fans{
-    width: 49%;
-    border: 1px solid #E5E5E5;
+    margin-top: 5px;
+    width: 50%;
+    border-top: 1px solid #E5E5E5;
     text-align: center;
     line-height: 40px;
 }
+.fans_border_right{
+    width: 49.5%;
+    border-right:1px solid #E5E5E5;
+}
+
 .userInfo_all{
     border: 1px solid #E5E5E5;
     float: left;
