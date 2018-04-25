@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import headerImg from  '../images/headerImg.jpeg'
+import headerImg from  '../images/headerImg.jpeg';
+import $ from 'jquery';
 
 import HerderSelect from './ComponentTitle1Select';
 
@@ -20,7 +21,9 @@ class ComponentTitle extends Component{
         this.state = {
             mouse_over:'0',
             clicked:'1',
-            userInfo:userInfo
+            userInfo:userInfo,
+            province:'',
+            city:'',
         };
     }
     showLogin(){
@@ -49,6 +52,19 @@ class ComponentTitle extends Component{
     changeMouserOver(index){
         this.setState({mouse_over:index});
     }
+    componentWillMount(){
+        this.getCity();
+    }
+    getCity(){
+        $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(){
+            if(remote_ip_info.ret == '1'){
+                alert(remote_ip_info.country + remote_ip_info.province + "省" + remote_ip_info.city + "市" + remote_ip_info.district + "区");
+                this.setState({province: remote_ip_info.province, city: remote_ip_info.city});
+            }else{
+                alert('没有找到匹配的IP地址信息！');
+            }
+        });
+    }
     render(){
         return(
             <div style={{float:"left",height:"50px",width:"100%"}}>
@@ -65,6 +81,7 @@ class ComponentTitle extends Component{
                     写攻略</HerderSelect></Link>
                 <Link to="/home/writeTravel"><HerderSelect index="6" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                     写游记</HerderSelect></Link>
+                <div className="title1_location left">当前城市：<a>{this.state.city === '' ? this.state.province : this.state.city}</a></div>
                 {this.showLogin()}
                 {this.showRegister()}
             </div>
