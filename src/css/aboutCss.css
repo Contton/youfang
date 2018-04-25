@@ -4,6 +4,8 @@
     border-top: 5px solid #FF9D00;
     padding-left: 30%;
     padding-top: 1%;
+    float: left;
+    width: 70%;
 }
 
 .about_us{

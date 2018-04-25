@@ -15,29 +15,31 @@ class ComponentLogin extends React.Component{
         console.log(JSON.stringify(userInfo));
         //设置UserInfo
         sessionStorage.setItem("userInfo",JSON.stringify(userInfo));
-
     }
 
     doLogin(){
         var phoneNumber = this.refs.input_phoneNum.value;
         var password = this.refs.input_password.value;
-        alert(phoneNumber);
-        alert(password);
         //验证用户
         $.ajax({
             url:'http://localhost:8080/login',
             data:{"phoneNumber":phoneNumber,"password":password},
-            type:'get',
+            type:'post',
             dataType:'json',
             success:(data)=>{
                 console.log(data);
-                //通过验证
-                //设置用户信息到SessionStorage
-                this.addUserInfoToSessionStorage(data.data);
-                //跳转到首页
-                this.props.history.push('/home/index');
-            },error:()=>{
-                alert("连接服务器失败");
+                if(data.code == '200') {
+                    //通过验证
+                    //设置用户信息到SessionStorage
+                    this.addUserInfoToSessionStorage(data.data);
+                    //跳转到首页
+                    this.props.history.push('/home/index');
+                }else{
+                    alert("密码错误");
+                }
+            },
+            error:()=>{
+                alert("请检查你的网络");
                 this.addUserInfoToSessionStorage(this.userInfo);
                 //跳转到首页
                 this.props.history.push('/home/index');

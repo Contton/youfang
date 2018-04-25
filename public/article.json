@@ -1,9 +1,18 @@
-[{"traverArticleId":1,
+[
+  {"traverArticleId":1,
   "title":"在一座生活的城，随心流浪——厦门行纪",
   "coverImageUrl":"http://n4-q.mafengwo.net/s11/M00/CC/BC/wKgBEFqrvXGARyaxAA2wCXMEuAs23.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90",
   "introduction":" 厦门自有它清丽而优雅的风范，但我从不觉得厦门是个小资城市；或许受小时候的影响，它对我来说，是一个看得见生活的地方，不是享受生活的地方。",
   "author":{"id":1,"nickName":"lixin","phoneNumber":"15091675497","email":"lx224466@163.com","headImageUrl":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1514772015,3464222502&fm=27&gp=0.jpg"},
   "university":{"id":1,"universityName":"西安邮电大学"},
   "createTime":"2018-04-19",
-  "praiseCount":1}
+  "praiseCount":144},
+  {"traverArticleId":1,
+    "title":"我的香港旅行故事",
+    "coverImageUrl":"http://b1-q.mafengwo.net/s11/M00/B4/5C/wKgBEFq3nROAYk1BAAD2UYHnUs094.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90",
+    "introduction":" 不同于以往对陌生城市的“探索”，香港之行对我和璐璐来说，更像是一种验证和找寻。验证这座城市拔地而起的楼宇、暴力与温情共存的街头是否符合想象，寻找这座城市在电影镜头中让我们俩迷恋已久的“张叔平美学”",
+    "author":{"id":1,"nickName":"lixin","phoneNumber":"15091675497","email":"lx224466@163.com","headImageUrl":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1514772015,3464222502&fm=27&gp=0.jpg"},
+    "university":{"id":1,"universityName":"西安邮电大学"},
+    "createTime":"2018-04-21",
+    "praiseCount":119}
 ]

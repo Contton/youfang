@@ -31,9 +31,11 @@ body {
   float: right;
 }
 .route_all{
+  float: left;
   width: 100%;
   margin: 0 auto;
-  padding-top: 70px;
+  height: 1700px;
+  border: 1px solid red;
 }
 .radius{
   border-radius: 5px;

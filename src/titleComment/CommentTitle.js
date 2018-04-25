@@ -30,7 +30,7 @@ class ComponentTitle extends Component{
             return (
                 <Link to="/userCenter">
                     <div className="title1_login left">
-                        <div className="headImg left" ><img src={headerImg}/>&nbsp;&nbsp;</div>
+                        <div className="headImg left" ><img src={this.state.userInfo.headImageUrl}/>&nbsp;&nbsp;</div>
                         {this.state.userInfo.nickName}
                     </div>
                 </Link>);
@@ -51,7 +51,7 @@ class ComponentTitle extends Component{
     }
     render(){
         return(
-            <div>
+            <div style={{float:"left",height:"50px",width:"100%"}}>
                 <div className="title1_logo left">游方</div>
                 <Link to="/home/index"><HerderSelect index="1" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true} first={true}>
                     首页</HerderSelect></Link>

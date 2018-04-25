@@ -9,6 +9,10 @@ import headerImg from  '../images/headerImg.jpeg'
 class ComponentUser extends React.Component{
     constructor(props){
         super(props);
+        let u = sessionStorage.getItem("userInfo");
+        if(u != null){
+            var userInfo = JSON.parse(u);
+        }
         this.state = {
             unchang:'修改个人简介',
             changed:'保存',
@@ -17,6 +21,7 @@ class ComponentUser extends React.Component{
             focus:0,
             fans_number:34,
             focus_number:55,
+            userInfo:userInfo,
         };
     }
     dealDiscribe(){
@@ -65,6 +70,12 @@ class ComponentUser extends React.Component{
                             </div>
                             <div className={headerSelectStyle}>
                                 <Link className="TopTitleCommonFont" to="/home/index">问答</Link>
+                            </div>
+                            <div className="headerCenter">
+                                <Link className="TopTitleCommonFont" to="/userCenter">
+                                        <div className="headImg left" ><img src={this.state.userInfo.headImageUrl}/>&nbsp;&nbsp;</div>
+                                        <span className="headerCenter_Font">{this.state.userInfo.nickName}</span>
+                                </Link>
                             </div>
 
                         </div>
@@ -206,13 +217,25 @@ class ComponentFans extends React.Component{
 }
 
 class ComponentUserInfor extends React.Component{
+    constructor(props){
+        super(props);
+        let u = sessionStorage.getItem("userInfo");
+        var userInfo = null;
+        if(u != null){
+            userInfo = JSON.parse(u);
+        }
+
+        this.state = {
+            userInfo:userInfo,
+        };
+    }
     render(){
         return(
             <div className="userInfo_all width">
                 <div className="userInfo_title width font_16">修改个人资料</div>
-                <span className="userInfo_space font_14">用户昵称：&nbsp;&nbsp;</span><input type="text" className="userInfo_one font_14"></input><br/>
-                <span className="userInfo_space font_14">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：&nbsp;&nbsp;</span><input className="userInfo_one font_14" type="tel"/><br/>
-                <span className="userInfo_space font_14">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：&nbsp;&nbsp;</span><input className="userInfo_one font_14" type="email"/><br/>
+                <span className="userInfo_space font_14">用户昵称：&nbsp;&nbsp;</span><input type="text" className="userInfo_one font_14" defaultValue={this.state.userInfo.nickName}/><br/>
+                <span className="userInfo_space font_14">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：&nbsp;&nbsp;</span><input readonly="readonly" defaultValue={this.state.userInfo.phoneNumber} className="userInfo_one font_14" type="text"/><br/>
+                <span className="userInfo_space font_14">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：&nbsp;&nbsp;</span><input defaultValue={this.state.userInfo.email} className="userInfo_one font_14" type="email"/><br/>
                 <span className="userInfo_space font_14">就读学校：&nbsp;&nbsp;</span><input className="userInfo_one font_14" type="text"/>
                 <div className="userInfo_sex width font_14"><span className="userInfo_space">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：&nbsp;&nbsp;</span>
                     <input className="userInfo_man" type="radio" name="sex" value="man"/>男

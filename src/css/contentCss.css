@@ -5,7 +5,7 @@
 .content_all{
     width: 75%;
     height: 1000px;
-    margin: 0 auto;
+    margin-left: 12.5%;
 }
 .content_left{
     width: 27%;
@@ -194,11 +194,12 @@
     text-decoration: underline;
     cursor: pointer;
 }
-
 .one_button{
     width: 20%;
     border: none;
     outline:medium;
+    font-family: 微软雅黑;
+
 }
 .one_button:hover{
     cursor: pointer;

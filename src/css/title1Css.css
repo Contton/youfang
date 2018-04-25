@@ -1,12 +1,12 @@
 .title1_all{
     font-family: '微软雅黑';
-    height: 60px;
+    height: 50px;
 }
 .title1_logo{
     margin-left: 25%;
-    height: 58px;
+    height: 50px;
     text-align: center;
-    line-height: 58px;
+    line-height: 50px;
 }
 .title1_logo img{
     height: 100%;
@@ -22,9 +22,11 @@
     display:flex;/*Flex布局*/
     display: -webkit-flex; /* Safari */
     align-items:center;/*指定垂直居中*/
-    padding: 15px;
-    height: 25px;
-    border-bottom:2px solid white;
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 47px;
+    line-height: 50px;
+    border-bottom:3px solid white;
     font-size: 16px;
 }
 .onclickStyle{
@@ -43,15 +45,17 @@
 }
 
 .headImg{
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 .headImg img{
     border-radius: 50%;
+    width: 35px;
+    height: 35px;
 }
 
 .title1_login{
-    line-height: 53px;
+    line-height: 50px;
     margin-left: 5%;
     font-size: 14px;
 }

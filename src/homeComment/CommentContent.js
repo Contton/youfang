@@ -45,7 +45,7 @@ class Article extends React.Component{
                 <div className="one_traveller left">
                     <div className="one_info left height">{this.props.article.university.universityName}</div>
                     <div className="one_info left height writer">{this.props.article.author.nickName}</div>
-                    <button className="one_button color_white radius left height background">{this.props.article.praiseCount}</button>
+                    <button className="one_button color_white radius left height background">点赞</button>
                 </div>
             </div>
         );
@@ -64,7 +64,7 @@ class CommentContent extends React.Component{
             travellerUrl:"http://localhost:3000/traveller.json",
             strategyUrl:"http://localhost:3000/strategy.json",
             placeUrl:"http://localhost:3000/place.json",
-            articleUrl:"http://localhost:3000/article.json",
+            articleUrl:"http://localhost:8080/hot/getHotTraverArticle",
         };
     }
     componentWillMount(){
@@ -72,6 +72,8 @@ class CommentContent extends React.Component{
         this.getStrategy();
         this.getPlace();
         this.getArticle();
+    }
+    componentDidMount(){
     }
     getTraveller(){
         $.ajax({
@@ -121,6 +123,15 @@ class CommentContent extends React.Component{
             }
         });
     }
+
+    renderTraverArticle(){
+        let list = [];
+        for(let i = 0;i < this.state.article.length - 2;i++){
+            list.push(<Article article={this.state.article[i]}/>);
+        }
+        return list;
+    }
+
     render(){
         return(
             <div className="content">
@@ -152,9 +163,7 @@ class CommentContent extends React.Component{
                         <div className="travels_title font_16 left">热门游记</div>
                         <div className="travels_more color_grey right">更多游记</div>
                         <div className="travels_all left">
-                            <Article article={this.state.article[0]}/>
-                            <Article article={this.state.article[0]}/>
-                            <Article article={this.state.article[0]}/>
+                            {this.renderTraverArticle()}
                         </div>
                     </div>
                     </div>

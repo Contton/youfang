@@ -48,19 +48,19 @@ class CommentPicture extends React.Component{
     render(){
         let show = style({
             show: true,
-            sliderAction: true
+            sliderAction: true,
         });
         let hidden = style({
             hidden: true,
-            sliderAction: true
+            sliderAction: true,
         })
         return(
             <div id="container">
                 <ul className="picture_img">
-                    <li className={this.state.index === 0 ? show : hidden}><img src={img9}/></li>
-                    <li className={this.state.index === 1 ? show : hidden}><img src={img10}/></li>
-                    <li className={this.state.index === 2 ? show : hidden}><img src={img11}/></li>
-                    <li className={this.state.index === 3 ? show : hidden}><img src={img12}/></li>
+                    <li className={this.state.index === 0 ? show : hidden}><img className="commonImgStyle " src={img9}/></li>
+                    <li className={this.state.index === 1 ? show : hidden}><img className="commonImgStyle img_position" src={img10}/></li>
+                    <li className={this.state.index === 2 ? show : hidden}><img className="commonImgStyle img_position"src={img11}/></li>
+                    <li className={this.state.index === 3 ? show : hidden}><img className="commonImgStyle img_position"src={img12}/></li>
                 </ul>
                 <div className="picture_find radius">
                     <input className="picture_input radius font_14" type="text" placeholder="搜索城市，大学，游记，攻略等"/><input value="搜索" className="picture_button radius font_14 color_white background" type="button"/>
