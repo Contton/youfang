@@ -16,7 +16,6 @@ class ComponentLogin extends React.Component{
         //设置UserInfo
         sessionStorage.setItem("userInfo",JSON.stringify(userInfo));
     }
-
     doLogin(){
         var phoneNumber = this.refs.input_phoneNum.value;
         var password = this.refs.input_password.value;
@@ -46,7 +45,9 @@ class ComponentLogin extends React.Component{
             }
         });
     }
-
+    backHome(){
+        this.props.history.push('/home/index');
+    }
     render(){
         return(
             <div className="login_all">
@@ -56,7 +57,7 @@ class ComponentLogin extends React.Component{
                         <input ref="input_password" type="password" className="login_check login_total" placeholder="请输入你的密码"/>
                         <br/>
                         <a>忘记密码？</a>
-                        <button className="login_get login_total">返回</button>
+                        <button className="login_get login_total" onClick={this.backHome.bind(this)}>返回</button>
                         <button className="login_get login_total" onClick={this.doLogin.bind(this)}>登录</button>
                 </div>
             </div>

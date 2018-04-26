@@ -33,11 +33,12 @@
     margin-top: 50px;
 }
 .place_every{
-    width: 68%;
-    margin-left: 15%;
+    width: 88%;
     height: 100px;
+    margin-left: 5%;
     border: 1px solid #E5E5E5;
     padding: 1% 1% 1% 1%;
+    margin-bottom: 20px;
 }
 .place_every:hover{
     box-shadow: 0 0 5px 1px #999999;

@@ -56,7 +56,7 @@
 
 .title1_login{
     line-height: 50px;
-    margin-left: 5%;
+    margin-left: 7%;
     font-size: 14px;
 }
 .title1_register{
@@ -82,4 +82,21 @@
 .title1_location{
     line-height: 50px;
     margin-left: 3%;
+}
+.title1_location a{
+    text-decoration: none;
+    color: #FF9D00;
+}
+.title1_location a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.title1_exit{
+    line-height: 50px;
+    margin-left: 1%;
+}
+.title1_exit:hover{
+    text-decoration: underline;
+    color: #FF9D00;
+    cursor: pointer;
 }

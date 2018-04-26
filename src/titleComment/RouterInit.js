@@ -8,7 +8,8 @@ import ComponentStrategy from '../strategyComment/ComponentAll';
 import ComponentLogin from '../loginComment/ComponentLogin';
 import ComponentRegister from '../registerComment/ComponentRegister';
 import ComponentStrategyPage from '../strategyPageComment/ComponentStrategyPage';
-import ComponentWrite from '../writeComment/ComponentWrite';
+import ComponentWriteTravel from '../writeComment/ComponentWriteTravel';
+import ComponentWriteStrategy from '../writeComment/ComponentWriteStrategy';
 import ComponentPlace from '../placeComment/ComponentAll';
 import ComponentUser from '../userComment/ComponentAll';
 
@@ -53,8 +54,8 @@ class RouterInit extends Component{
                              <Route path="/home/hotPlace" component={ComponentPlace}/>
                              <Route path="/home/hotStrategy" component={ComponentStrategy}/>
                              <Route path="/home/hotTravel" component={ComponentStrategyPage}/>
-                             <Route path="/home/writeStrategy"/>
-                             <Route path="/home/writeTravel" component={ComponentWrite}/>
+                             <Route path="/home/writeStrategy" component={ComponentWriteStrategy}/>
+                             <Route path="/home/writeTravel" component={ComponentWriteTravel}/>
                              <Redirect path="/" to={{pathname: '/home/index'}} />
                             </div>
                         </Route>

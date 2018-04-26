@@ -89,6 +89,24 @@ class BeiJing extends React.Component{
                     <div className="right color_grey font_14 place_content">游记：<span>33</span></div>
                     <div className="place_strategy right color_grey font_14 place_content">攻略：<span>29</span></div>
                 </div>
+                <div className="place_every radius">
+                    <div className="place_name width font_16 color_orange">天安门</div>
+                    <div className="place_content width font_14">天安门，坐落在中华人民共和国首都北京市的中心，以杰出的建筑艺术和特殊的政治地位为世人所瞩目。</div>
+                    <div className="right color_grey font_14 place_content">游记：<span>33</span></div>
+                    <div className="place_strategy right color_grey font_14 place_content">攻略：<span>29</span></div>
+                </div>
+                <div className="place_every radius">
+                    <div className="place_name width font_16 color_orange">天安门</div>
+                    <div className="place_content width font_14">天安门，坐落在中华人民共和国首都北京市的中心，以杰出的建筑艺术和特殊的政治地位为世人所瞩目。</div>
+                    <div className="right color_grey font_14 place_content">游记：<span>33</span></div>
+                    <div className="place_strategy right color_grey font_14 place_content">攻略：<span>29</span></div>
+                </div>
+                <div className="place_every radius">
+                    <div className="place_name width font_16 color_orange">天安门</div>
+                    <div className="place_content width font_14">天安门，坐落在中华人民共和国首都北京市的中心，以杰出的建筑艺术和特殊的政治地位为世人所瞩目。</div>
+                    <div className="right color_grey font_14 place_content">游记：<span>33</span></div>
+                    <div className="place_strategy right color_grey font_14 place_content">攻略：<span>29</span></div>
+                </div>
             </div>
         );
     }

@@ -23,20 +23,28 @@ class ComponentTitle extends Component{
             clicked:'1',
             userInfo:userInfo,
             province:'',
-            city:'',
+            city:'西安',
         };
+    }
+    logout(){
+        sessionStorage.removeItem("userInfo");
+        this.setState({"userInfo":null});
     }
     showLogin(){
         if(this.state.userInfo == null || this.state.userInfo == '' || this.state.userInfo == undefined){
             return <Link to="/login"><div className="title1_login left">登录</div></Link>;
         }else if(this.state.userInfo != null){
             return (
-                <Link to="/userCenter">
-                    <div className="title1_login left">
-                        <div className="headImg left" ><img src={this.state.userInfo.headImageUrl}/>&nbsp;&nbsp;</div>
-                        {this.state.userInfo.nickName}
-                    </div>
-                </Link>);
+                <div>
+                    <Link to="/userCenter">
+                        <div className="title1_login left">
+                            <div className="headImg left" ><img src={this.state.userInfo.headImageUrl}/>&nbsp;&nbsp;</div>
+                            {this.state.userInfo.nickName}
+                        </div>
+                    </Link>
+                    <div className="title1_exit font_14 left color_grey" onClick={this.logout.bind(this)}>[退出]</div>
+                </div>
+            );
         }
     }
     showRegister(){
@@ -52,14 +60,21 @@ class ComponentTitle extends Component{
     changeMouserOver(index){
         this.setState({mouse_over:index});
     }
+
+    componentDidMount(){
+
+    }
+
     componentWillMount(){
         this.getCity();
     }
     getCity(){
-        $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(){
-            if(remote_ip_info.ret == '1'){
-                alert(remote_ip_info.country + remote_ip_info.province + "省" + remote_ip_info.city + "市" + remote_ip_info.district + "区");
-                this.setState({province: remote_ip_info.province, city: remote_ip_info.city});
+        var remote_ip_info;
+        $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(response,status){
+            if(true){
+            //if(remote_ip_info.ret == '1'){
+                //alert(remote_ip_info.country + remote_ip_info.province + "省" + remote_ip_info.city + "市" + remote_ip_info.district + "区");
+                //this.setState({province: remote_ip_info.province, city: remote_ip_info.city});
             }else{
                 alert('没有找到匹配的IP地址信息！');
             }
@@ -81,7 +96,7 @@ class ComponentTitle extends Component{
                     写攻略</HerderSelect></Link>
                 <Link to="/home/writeTravel"><HerderSelect index="6" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                     写游记</HerderSelect></Link>
-                <div className="title1_location left">当前城市：<a>{this.state.city === '' ? this.state.province : this.state.city}</a></div>
+                <div className="title1_location font_14 left">当前城市：<a>{this.state.city === '' ? this.state.province : this.state.city}</a></div>
                 {this.showLogin()}
                 {this.showRegister()}
             </div>
