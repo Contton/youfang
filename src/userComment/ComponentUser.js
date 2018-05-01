@@ -5,6 +5,7 @@ import img2 from '../images/2.jpg';
 import head from '../images/head.jpg';
 import classNames from 'classnames';
 import headerImg from  '../images/headerImg.jpeg'
+import $ from "jquery";
 
 class ComponentUser extends React.Component{
     constructor(props){
@@ -104,7 +105,7 @@ class ComponentUser extends React.Component{
                                         <Link to="/userCenter/fans"><div className="left user_choose height font_14">我的粉丝</div></Link>
                                         <Link to="/userCenter/follow"><div className="left user_choose height font_14">我的关注</div></Link>
                                     </div>
-                                    <Route path="/userCenter/information" component={ComponentUserInfor}/>
+                                    <Route path="/userCenter/information" component={ComponentUserInfo}/>
                                     <Route exact path="/userCenter/travel" component={ComponentTravel}/>
                                     <Route path="/userCenter/fans" component={ComponentFans}/>
                                 </div>
@@ -216,7 +217,7 @@ class ComponentFans extends React.Component{
     }
 }
 
-class ComponentUserInfor extends React.Component{
+class ComponentUserInfo extends React.Component{
     constructor(props){
         super(props);
         let u = sessionStorage.getItem("userInfo");
@@ -258,9 +259,105 @@ class ComponentTravel extends React.Component{
             travel_count:30,
             travel_answer:549,
             travel_read:1035,
+            data:[],
+            pageNum:1,
+            pageSize:4,
+            total:0,
+            navigatepageNums:[],
         };
     }
+
+    renderNavigatepageNums(data){
+        let pageStyle = {
+            cursor:'pointer',marginRight:'10px',borderRadius:"2px", border:"1px solid #FF9D00",color:"white",backgroundColor:"#FF9D00",paddingTop:"3px",paddingBottom:'3px',paddingLeft:'8px',paddingRight:'8px',float:'left',
+        };
+        let list = [];
+        if(data != null) {
+            for (let i = 0; i < data.length; i++) {
+                list.push(
+                    <div style={pageStyle} onClick={this.turnPage.bind(this,data[i])}>{data[i]}</div>
+                    );
+            }
+        }
+        return list;
+    }
+
+    renderArticle = (data)=>{
+        let list = [];
+        if(data != null) {
+            for (let i = 0; i < data.length; i++) {
+                list.push(
+                    <div className="userTravel_one radius">
+                    <img src={data[i].coverImageUrl}/>
+                    <div className="left color_orange font_16">{data[i].title}</div>
+                    <div className="userTravel_content left font_14 color_grey">{data[i].introduction}</div>
+                    <div className="font_14 userTravel_time color_grey right">{data[i].createTime}</div>
+                    <div className="font_14 color_grey right">赞：<span>{data[i].praiseCount}</span></div>
+                </div>);
+            }
+        }
+        return list;
+    }
+
+    getArticle = (pageNum)=>{
+        $.ajax({
+                ///user/{id}/{pageNum}/{pageSize}
+                url:'http://localhost:8080/traverArticle/user/'+ 1 + '/' + pageNum + '/' + this.state.pageSize ,
+                type:'get',
+                dataType:'json',
+                async: false,
+                xhrFields: {    //携带cookies
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success:(data)=>{
+                    console.log(data);
+                    //跳转到首页
+                    this.setState({data:data.list});
+                    this.setState({total:data.total});
+                    this.setState({navigatepageNums:data.navigatepageNums});
+                },
+                error:()=>{
+                    alert("请检查你的网络");
+                    //跳转到首页
+                }
+            }
+        );
+    }
+
+    nextPage = ()=>{
+        this.setState({pageNum:this.state.pageNum + 1},()=>{
+            this.getArticle(this.state.pageNum);
+        });
+
+    };
+
+    prePage = ()=>{
+        this.setState({pageNum:this.state.pageNum - 1},()=>{
+            this.getArticle(this.state.pageNum);
+        });
+    };
+
+    turnPage(now){
+        this.setState({pageNum:now},()=>{
+            this.getArticle(this.state.pageNum);
+        });
+    };
+
+    componentDidMount(){
+        this.getArticle(this.state.pageNum);
+    }
+
+
     render(){
+        let pageStyle = {
+            cursor:'pointer',marginRight:'10px',borderRadius:"2px", border:"1px solid #FF9D00",color:"white",backgroundColor:"#FF9D00",paddingTop:"3px",paddingBottom:'3px',paddingLeft:'8px',paddingRight:'8px',float:'left',
+        }
+
+        let pageText = {
+            marginRight:'10px',color:"#FF9D00",paddingTop:"3px",paddingBottom:'3px',paddingLeft:'8px',paddingRight:'8px',float:'left',
+        }
+
         return(
             <div className="userInfo_all width">
                 <div className="userTravel_title font_16">
@@ -275,34 +372,13 @@ class ComponentTravel extends React.Component{
                     </div>
                 </div>
                 <div className="width">
-                    <div className="userTravel_one radius">
-                        <img src={img2}/>
-                        <div className="left color_orange font_16">走进安娜普尔纳的遗世天堂</div>
-                        <div className="userTravel_content left font_14 color_grey">即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。</div>
-                        <div className="font_14 userTravel_time color_grey right">2018-4-2</div>
-                        <div className="font_14 color_grey right">阅读：<span>223</span></div>
-                    </div>
-                    <div className="userTravel_one radius">
-                        <img src={img2}/>
-                        <div className="left color_orange font_16">走进安娜普尔纳的遗世天堂</div>
-                        <div className="userTravel_content left font_14 color_grey">即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。</div>
-                        <div className="font_14 userTravel_time color_grey right">2018-4-2</div>
-                        <div className="font_14 color_grey right">阅读：<span>223</span></div>
-                    </div>
-                    <div className="userTravel_one radius">
-                        <img src={img2}/>
-                        <div className="left color_orange font_16">走进安娜普尔纳的遗世天堂</div>
-                        <div className="userTravel_content left font_14 color_grey">即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。</div>
-                        <div className="font_14 userTravel_time color_grey right">2018-4-2</div>
-                        <div className="font_14 color_grey right">阅读：<span>223</span></div>
-                    </div>
-                    <div className="userTravel_one radius">
-                        <img src={img2}/>
-                        <div className="left color_orange font_16">走进安娜普尔纳的遗世天堂</div>
-                        <div className="userTravel_content left font_14 color_grey">即使转眼过去许久，面对着上海连绵刺骨的阴雨冬天，我依然会无比怀念在Annapurna群山之中的探险岁月，所有一切至今仿佛都历历在目，令人越发珍惜。</div>
-                        <div className="font_14 userTravel_time color_grey right">2018-4-2</div>
-                        <div className="font_14 color_grey right">阅读：<span>223</span></div>
-                    </div>
+                    {this.renderArticle(this.state.data)}
+                </div>
+                <div className="width" style={{marginTop:'30px',paddingBottom:'50px',marginLeft:'200px'}}>
+                    <div style={pageStyle} onClick={this.prePage}>上一页</div>
+                    {this.renderNavigatepageNums(this.state.navigatepageNums)}
+                    <div style={pageStyle} onClick={this.nextPage}>下一页</div>
+                    <div style={pageText}>共计:{this.state.total}</div>
                 </div>
             </div>
         );

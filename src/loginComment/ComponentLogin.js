@@ -25,6 +25,10 @@ class ComponentLogin extends React.Component{
             data:{"phoneNumber":phoneNumber,"password":password},
             type:'post',
             dataType:'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
             success:(data)=>{
                 console.log(data);
                 if(data.code == '200') {

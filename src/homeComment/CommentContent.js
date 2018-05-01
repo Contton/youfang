@@ -71,9 +71,10 @@ class CommentContent extends React.Component{
         this.getTraveller();
         this.getStrategy();
         this.getPlace();
-        this.getArticle();
+        //this.getArticle();
     }
     componentDidMount(){
+        this.getArticle();
     }
     getTraveller(){
         $.ajax({
