@@ -2,6 +2,7 @@ import React from 'react';
 
 import Edit from './Edit';
 import $ from 'jquery';
+import ComponentAboute from '../abouteComment/CommentAbout'
 
 class CommentBox extends React.Component {
 
@@ -25,7 +26,12 @@ class CommentBox extends React.Component {
     }
 
     renderImg(imgUrl){
-        return(<img src={imgUrl}/>);
+        if(imgUrl == "") {
+            return (<div style={{textAlign:'center',lineHeight:"140px"}}>封面</div>);
+        }
+        else{
+            return (<img style={{width: '190px', height: '140px',}} src={imgUrl}/>);
+        }
     }
 
     handleImageUpload(e){
@@ -49,7 +55,6 @@ class CommentBox extends React.Component {
     handleSubmit = ()=>{
         this.textInputChange();
         $.ajax({
-                //title=test&introduction=test&coverImageUrl=http://localhost/ss.jsp&content=<p>测试</p>
                 url:'http://localhost:8080/traverArticle/addTraverArticle',
                 data:{"title":this.refs.title.value,
                     "introduction":this.refs.introduction.value,
@@ -79,37 +84,46 @@ class CommentBox extends React.Component {
         );
     }
 
+    handleUploadImgAction(){
+        this.refs.inputFile.click();
+    }
+
     render () {
         return (
-            <div>
+            <div >
                 <div style={{borderBottom:"1px solid #D6D6D6",width:'100%',float:"left",boxShadow:'4px 0px 4px #F0F0F0'}}/>
-                <div className="write">
+                <div className="write left" style={{backgroundColor:"# "}}>
                     <div className="write_div">
                         <input ref="title" className="write_title radius font_14" type="text" placeholder="请在此处填写题目"/>
                         <input ref="dist" className="write_title radius font_14" type="text" placeholder="请在此处填写目的地"/>
                         <textarea  ref="introduction" className="write_intro radius font_14" placeholder="请在此处填写简介"/>
-                        <input name="file" type='file' onChange={this.handleImageUpload.bind(this)}/>
-                        {this.renderImg(this.state.imgUrl)}
-                        <div className="write_content width radius">
-                            <div>
+                        <div style={{backgroundColor:'white',width:'190px',height:'140px',border:'1px solid #D6D6D6',float:'left',marginBottom:'20px'}}>
+                            {this.renderImg(this.state.imgUrl)}
+                        </div>
+                        <input ref="inputFile" style={{float:'right',opacity:'0'}} name="file" type='file' onChange={this.handleImageUpload.bind(this)}/>
+                        <div onClick={this.handleUploadImgAction.bind(this)} style={{cursor:'pointer',textAlign:'center',color:'white',borderRadius:'3px',lineHeight:'30px',float:'left',height:'30px',width:'80px',marginLeft:'20px',backgroundColor:'#FF9E00'}}>添加封面</div>
+                        <div className="write_content width radius left ">
+                            <div  style={{backgroundColor:"#fff"}}>
                                 <Edit getHtmlContext={this.getHtmlContext}/>
                             </div>
-                            <div style={{
-                                float:'right',
-                                lineHeight:'30px',
-                                width:'80px',
-                                height:'30px',
-                                borderRadius:'5px',
-                                fontFamily:'微软雅黑',
-                                color:'#fff',
-                                backgroundColor:'#FF9E00',
-                                cursor:'pointer',
-                                paddingLeft:'50px',
-                                marginTop:'50px',
-                                marginBottom:'100px'}} onClick={this.handleSubmit}>提交</div>
-                        </div>
+                    </div>
+                        <div style={{
+                            float:'right',
+                            lineHeight:'30px',
+                            width:'80px',
+                            height:'30px',
+                            borderRadius:'5px',
+                            fontFamily:'微软雅黑',
+                            color:'#fff',
+                            backgroundColor:'#FF9E00',
+                            cursor:'pointer',
+                            paddingLeft:'50px',
+                            marginTop:'50px',
+                            marginBottom:'100px'
+                        }} onClick={this.handleSubmit}>提交</div>
                     </div>
                 </div>
+                <ComponentAboute/>
             </div>
         )
     }

@@ -1,11 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import img1 from '../images/1.jpg';
-import img2 from '../images/2.jpg';
-import head from '../images/head.jpg';
 import classNames from 'classnames';
-import headerImg from  '../images/headerImg.jpeg'
 import $ from "jquery";
+import ArticlePage from './ArticlePage';
 
 class ComponentUser extends React.Component{
     constructor(props){
@@ -78,16 +76,16 @@ class ComponentUser extends React.Component{
                                         <span className="headerCenter_Font">{this.state.userInfo.nickName}</span>
                                 </Link>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <div className="user">
-                    <div className="user_all">
+                    <div>
+                        <div className="user_all">
                         <div className="user_left left">
                             <div className="user_info left">
-                                <img src={head}/>
-                                <div className="user_name font_16">佟丽娅</div>
+                                <img src={this.state.userInfo.headImageUrl}/>
+                                <div className="user_name font_16">{this.state.userInfo.nickName}</div>
                                 <div onClick={this.dealDiscribe.bind(this)} className="user_change font_14">{this.state.change === false ? this.state.unchang : this.state.changed}</div>
                                 <input type="text" className={this.state.change === false ? discribeHidden : discribeShow}/>
                                 <div onMouseOver={this.dealFansOver.bind(this, 1)} onMouseOut={this.dealFansOut.bind(this, 1)} className="user_fans left font_14 fans_border_right">{this.state.fans === 0 ? '粉丝' : this.state.fans_number}</div>
@@ -95,7 +93,6 @@ class ComponentUser extends React.Component{
                             </div>
                         </div>
                         <div className="user_right right">
-                            <Router>
                                 <div className="width">
                                     <div className="user_nav width left">
                                         <Link to="/userCenter/information"><div className="left user_choose height font_14">我的资料</div></Link>
@@ -109,8 +106,8 @@ class ComponentUser extends React.Component{
                                     <Route exact path="/userCenter/travel" component={ComponentTravel}/>
                                     <Route path="/userCenter/fans" component={ComponentFans}/>
                                 </div>
-                            </Router>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -255,6 +252,11 @@ class ComponentUserInfo extends React.Component{
 class ComponentTravel extends React.Component{
     constructor(props){
         super(props);
+        let u = sessionStorage.getItem("userInfo");
+        var userInfo = null;
+        if(u != null){
+            userInfo = JSON.parse(u);
+        }
         this.state = {
             travel_count:30,
             travel_answer:549,
@@ -264,6 +266,7 @@ class ComponentTravel extends React.Component{
             pageSize:4,
             total:0,
             navigatepageNums:[],
+            userInfo:userInfo,
         };
     }
 
@@ -286,14 +289,15 @@ class ComponentTravel extends React.Component{
         let list = [];
         if(data != null) {
             for (let i = 0; i < data.length; i++) {
+                let id = '/ArticlePage/' + data[i].traverArticleId;
                 list.push(
-                    <div className="userTravel_one radius">
-                    <img src={data[i].coverImageUrl}/>
-                    <div className="left color_orange font_16">{data[i].title}</div>
-                    <div className="userTravel_content left font_14 color_grey">{data[i].introduction}</div>
-                    <div className="font_14 userTravel_time color_grey right">{data[i].createTime}</div>
-                    <div className="font_14 color_grey right">赞：<span>{data[i].praiseCount}</span></div>
-                </div>);
+                    <div className="userTravel_one radius" onClick={()=>{this.props.history.push(id)}}>
+                        <img src={data[i].coverImageUrl}/>
+                        <div className="left color_orange font_16">{data[i].title}</div>
+                        <div className="userTravel_content left font_14 color_grey">{data[i].introduction}</div>
+                        <div className="font_14 userTravel_time color_grey right">{data[i].createTime}</div>
+                        <div className="font_14 color_grey right">赞：<span>{data[i].praiseCount}</span></div>
+                    </div>);
             }
         }
         return list;
@@ -302,7 +306,7 @@ class ComponentTravel extends React.Component{
     getArticle = (pageNum)=>{
         $.ajax({
                 ///user/{id}/{pageNum}/{pageSize}
-                url:'http://localhost:8080/traverArticle/user/'+ 1 + '/' + pageNum + '/' + this.state.pageSize ,
+                url:'http://localhost:8080/traverArticle/user/'+ this.state.userInfo.id + '/' + pageNum + '/' + this.state.pageSize ,
                 type:'get',
                 dataType:'json',
                 async: false,

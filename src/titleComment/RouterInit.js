@@ -12,6 +12,7 @@ import ComponentWriteTravel from '../writeComment/ComponentWriteTravel';
 import ComponentWriteStrategy from '../writeComment/ComponentWriteStrategy';
 import ComponentPlace from '../placeComment/ComponentAll';
 import ComponentUser from '../userComment/ComponentAll';
+import ArticlePage from '../userComment/ArticlePage';
 
 class RouterInit extends Component{
     constructor(props){
@@ -53,7 +54,7 @@ class RouterInit extends Component{
                              <Route path="/home/index" component={ComponentHome}/>
                              <Route path="/home/hotPlace" component={ComponentPlace}/>
                              <Route path="/home/hotStrategy" component={ComponentStrategy}/>
-                             <Route path="/home/hotTravel" component={ComponentStrategyPage}/>
+                             <Route path="/home/hotTravel/:id" component={ComponentStrategyPage}/>
                              <Route path="/home/writeStrategy" component={ComponentWriteStrategy}/>
                              <Route path="/home/writeTravel" component={ComponentWriteTravel}/>
                              <Redirect path="/" to={{pathname: '/home/index'}} />
@@ -62,6 +63,7 @@ class RouterInit extends Component{
                         <Route path="/userCenter" component={ComponentUser}/>
                         <Route path="/login" component={ComponentLogin}/>
                         <Route path="/register" component={ComponentRegister}/>
+                        <Route path="/ArticlePage/:id" component={ArticlePage}/>
                     </div>
                 </Router>
             </div>
