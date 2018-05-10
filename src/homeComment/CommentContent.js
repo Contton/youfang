@@ -37,8 +37,9 @@ class Place extends React.Component{
 }
 class Article extends React.Component{
     render(){
+        let id = '/ArticlePage/' + this.props.article.traverArticleId;
         return(
-            <div className="travels_one width font_14">
+            <div className="travels_one width font_14" onClick={()=>{this.props.push(id)}}>
                 <div className="one_picture left height"><img src={this.props.article.coverImageUrl}/></div>
                 <div className="one_title font_18 left color_orange">{this.props.article.title}</div>
                 <div className="one_content color_grey left">{this.props.article.introduction}</div>
@@ -126,9 +127,10 @@ class CommentContent extends React.Component{
     }
 
     renderTraverArticle(){
+
         let list = [];
         for(let i = 0;i < this.state.article.length - 2;i++){
-            list.push(<Article article={this.state.article[i]}/>);
+            list.push(<Article push={this.props.push} article={this.state.article[i]}/>);
         }
         return list;
     }

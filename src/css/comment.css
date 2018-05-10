@@ -1,0 +1,117 @@
+.commentBox{
+    width: 100%;
+    margin: 0 auto;
+    float: left;
+}
+
+.commentDiv{
+    width: 1366px;
+    margin: 0 auto;
+}
+
+.commentTitle{
+    margin-left: 180px;
+    width: 700px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.commentLine{
+    margin-left: 180px;
+    width: 700px;
+    border-top: 1px solid #dcdcdc;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+
+.commentList{
+    margin-left: 180px;
+}
+
+.commentItem{
+    width: 700px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    border-top: 1px solid #B4B4B4;
+}
+
+
+.commentUser{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+}
+
+.commentUserNickName{
+    font-size: 14px;
+    color: #ff8403;
+}
+
+.commentUserImg{
+}
+
+.commentUserImg img{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.commentText{
+    font-size: 14px;
+    margin-top: 15px;
+    margin-left: 30px;
+    color: #828282;
+}
+
+.commentTime{
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left:30px;
+    color: #828282;
+}
+
+.doWatch{
+    cursor: pointer;
+    background-color: #D67B18;
+    color: white;
+    font-size: 10px;
+    margin-left: 20px;
+    border-radius: 3px;
+    padding-left: 4px;
+    padding-right: 5px;
+}
+
+.commentInput{
+    width: 700px;
+    height: 200px;
+    border: 1px solid #dcdcdc;
+    margin-left: 180px;
+    margin-bottom: 20px;
+}
+
+.commentInputArea{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    padding-top: 2%;
+    margin-left: 3%;
+    border: none;
+    width: 97%;
+    height: 93%;
+    resize:none;
+    outline:none
+}
+
+.commentSubmit{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #FF9D00;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 760px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}

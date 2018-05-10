@@ -8,7 +8,8 @@ class ArtilcleComponent extends React.Component{
         super(props);
         this.state = {
             article:'',
-            author:''
+            author:'',
+            praiseCount:0
         };
     }
 
@@ -21,6 +22,7 @@ class ArtilcleComponent extends React.Component{
         $.get(url,function(res){
                 this.setState({article:res});
                 this.setState({author:res.author});
+                this.setState({praiseCount:res.praiseCount});
             }.bind(this)
         )
     }
@@ -31,13 +33,24 @@ class ArtilcleComponent extends React.Component{
         );
     }
 
+    addPraise(id){
+        //http://localhost:8080/traverArticle/doPraise/1
+        let url = "http://localhost:8080/traverArticle/doPraise/" + id;
+        $.get(url,(res)=>{
+            if(res.code == 200){
+                this.setState({praiseCount:this.state.praiseCount+1});
+            }
+        })
+    }
+
     render(){
         return(
+            <div className="articlePage">
             <div className="page1">
                 <div className="page1_all">
                     <div className="page1_left left">
                         <div className="page1_title font_18">{this.state.article.title}</div>
-                        <div className="page1_time font_14 color_grey right">赞&nbsp;<span>{this.state.article.praiseCount}</span></div>
+                        <div className="page1_time font_14 color_grey right">赞&nbsp;<span>{this.state.praiseCount}</span></div>
                         <div className="page1_time font_14 color_grey right">{this.state.article.createTime}</div>
                         <div className="page1_time font_14 color_grey right">自由行攻略</div>
                         <div className="page1_writer radius left">
@@ -52,7 +65,7 @@ class ArtilcleComponent extends React.Component{
                         </div>
                     </div>
                     <div className="page1_right left">
-                        <div className="page1_button color_white font_14 radius left background">点赞</div>
+                        <div onClick={this.addPraise.bind(this,this.state.article.traverArticleId)} className="page1_button color_white font_14 radius left background">点赞</div>
                         <div className="page1_button color_white font_14 radius left background">收藏</div>
                         <div className="page1_button color_white font_14 radius left background">评论</div>
                         <div className="page1_more left">
@@ -63,6 +76,7 @@ class ArtilcleComponent extends React.Component{
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

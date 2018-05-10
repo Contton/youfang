@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom
 import img1 from '../images/1.jpg';
 import classNames from 'classnames';
 import $ from "jquery";
-import ArticlePage from './ArticlePage';
+import UserTitleComponent from './UserTitleComponent';
 
 class ComponentUser extends React.Component{
     constructor(props){
@@ -55,30 +55,7 @@ class ComponentUser extends React.Component{
         });
         return(
             <div className="user_com">
-                <div className="TopTitle_com">
-                    <div className="TopTitle_com_div">
-                        <div className="TopTitle">
-                            <div className={headerSelectStyle}>
-                                游方
-                            </div>
-                            <div className={headerSelectStyle}>
-                                <Link className="TopTitleCommonFont" to="/home/index">首页</Link>
-                            </div>
-                            <div className={headerSelectStyle}>
-                                <Link className="TopTitleCommonFont" to="/home/index">组队</Link>
-                            </div>
-                            <div className={headerSelectStyle}>
-                                <Link className="TopTitleCommonFont" to="/home/index">问答</Link>
-                            </div>
-                            <div className="headerCenter">
-                                <Link className="TopTitleCommonFont" to="/userCenter">
-                                        <div className="headImg left" ><img src={this.state.userInfo.headImageUrl}/>&nbsp;&nbsp;</div>
-                                        <span className="headerCenter_Font">{this.state.userInfo.nickName}</span>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <UserTitleComponent/>
                 <div className="user">
                     <div>
                         <div className="user_all">

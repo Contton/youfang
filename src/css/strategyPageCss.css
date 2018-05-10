@@ -1,15 +1,21 @@
-.page1{
-    width: 1360px;
+.articlePage{
     margin: 0 auto;
-    padding-top: 60px;
+    width: 100%;
+    float: left;
 }
+
+.page1{
+    margin: 0 auto;
+    height: 100px;
+    width: 1360px;
+}
+
 .page1_all{
     width: 75%;
     margin: 0 auto;
 }
 .page1_left{
     width: 65%;
-    height: 300px;
 }
 .page1_title{
     width: 100%;
@@ -20,7 +26,6 @@
 .page1_right{
     width: 30%;
     margin-left: 5%;
-    height: 300px;
 }
 .page1_button{
     width: 30%;
@@ -102,7 +107,6 @@
 .page1_content{
     width: 98%;
     padding: 1% 1% 1% 1%;
-    height: 200px;
     margin-top: 30px;
 }
 .page1_synopsis{

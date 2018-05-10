@@ -110,14 +110,6 @@ class Edit extends Component {
         )
     }
 
-
-    handleChange = (content) => {
-        console.log(content)
-    }
-
-    handleRawChange = (rawContent) => {
-        console.log(rawContent)
-    }
     handleHtmlChange = (htmlContent)=>{
         console.log(htmlContent)
         this.setState({htmlContent:htmlContent});
