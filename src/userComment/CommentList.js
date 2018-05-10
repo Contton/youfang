@@ -2,11 +2,9 @@
 import React from 'react';
 import '../css/comment.css'
 import $ from "jquery";
+import { GET_COMMENT_BY_ARTICLEID, ADD_COMMENT } from "../API";
 
 class CommentList extends React.Component{
-    GET_COMMENT_BY_ARTICLEID = "http://localhost:8080/comments/";
-    ADD_COMMENT = "http://localhost:8080/addComment";
-
     constructor(props){
         super(props);
         this.state = {commentList:[]};

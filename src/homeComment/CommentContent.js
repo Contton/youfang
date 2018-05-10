@@ -1,11 +1,15 @@
 'use strict'
 import React from 'react';
 import $ from 'jquery';
+import { HOT_TRAVEL_URL, HOT_TRAVELLER__URL, HOT_STRATEGY_URL, HOT_PLACE_URL } from "../API";
 
 class Traveller extends React.Component{
+    openTraver(){
+        this.props.push('/traverPage/1');
+    }
     render(){
         return(
-            <div className="traveller_all left width font_14">
+            <div onClick={this.openTraver.bind(this)} className="traveller_all left width font_14">
                 <img src={this.props.traveller.picture}/>
                 <div className="traveller_name font18 color_orange">{this.props.traveller.name}</div>
                 <div className="traveller_intro color_grey">{this.props.traveller.autograph}</div>
@@ -62,10 +66,6 @@ class CommentContent extends React.Component{
             strategy:[],
             place:[],
             article:[],
-            travellerUrl:"http://localhost:3000/traveller.json",
-            strategyUrl:"http://localhost:3000/strategy.json",
-            placeUrl:"http://localhost:3000/place.json",
-            articleUrl:"http://localhost:8080/hot/getHotTraverArticle",
         };
     }
     componentWillMount(){
@@ -79,7 +79,7 @@ class CommentContent extends React.Component{
     }
     getTraveller(){
         $.ajax({
-            url: this.state.travellerUrl,
+            url: HOT_TRAVELLER__URL,
             async: false,
             success: (comments) => {
                 this.setState({traveller:comments});
@@ -91,7 +91,7 @@ class CommentContent extends React.Component{
     }
     getStrategy(){
         $.ajax({
-            url: this.state.strategyUrl,
+            url: HOT_STRATEGY_URL,
             async: false,
             success: (comments) => {
                 this.setState({strategy:comments});
@@ -103,7 +103,7 @@ class CommentContent extends React.Component{
     }
     getPlace(){
         $.ajax({
-            url: this.state.placeUrl,
+            url: HOT_PLACE_URL,
             async: false,
             success: (comments) => {
                 this.setState({place:comments});
@@ -115,7 +115,7 @@ class CommentContent extends React.Component{
     }
     getArticle(){
         $.ajax({
-            url: this.state.articleUrl,
+            url: HOT_TRAVEL_URL,
             async: false,
             success: (comments) => {
                 this.setState({article:comments});
@@ -129,7 +129,7 @@ class CommentContent extends React.Component{
     renderTraverArticle(){
 
         let list = [];
-        for(let i = 0;i < this.state.article.length - 2;i++){
+        for(let i = 0;i < this.state.article.length;i++){
             list.push(<Article push={this.props.push} article={this.state.article[i]}/>);
         }
         return list;
@@ -143,7 +143,7 @@ class CommentContent extends React.Component{
                         <div className="content_traveller width">
                             <div className="traveller_title font_16 left">热门博主</div>
                             <div className="traveller_more color_grey left">更多博主</div>
-                            <Traveller traveller={this.state.traveller}/>
+                            <Traveller push={this.props.push} traveller={this.state.traveller}/>
                         </div>
                         <div className="content_strategy width">
                             <div className="strategy_title font_16 left">旅游攻略推荐</div>

@@ -16,10 +16,6 @@ class Articlepage extends React.Component{
     componentDidMount(){
     }
 
-    doWatch(){
-        alert("关注成功")
-    }
-
     render(){
         return(
             <div>

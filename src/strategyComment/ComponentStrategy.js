@@ -1,6 +1,7 @@
 'use strict'
 import React from 'react';
 import $ from 'jquery';
+import { FIND_STRATEGY_URL } from "../API";
 
 class OneContent extends React.Component{
     listPicture(){
@@ -27,7 +28,6 @@ class CommentList extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            contenUrl:"http://localhost:3000/list.json",
             list:[],
         };
     }
@@ -36,7 +36,7 @@ class CommentList extends React.Component{
     }
     getList(){
         $.ajax({
-            url: this.state.contenUrl,
+            url: FIND_STRATEGY_URL,
             async: false,
             success: (comments) => {
                 this.setState({list:comments});

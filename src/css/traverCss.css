@@ -1,0 +1,78 @@
+.traver{
+    width: 1360px;
+    padding-top: 60px;
+    margin: 0 auto;
+}
+.traver_all{
+    width: 75%;
+    margin: 0 auto;
+}
+.traver_left{
+    width: 68%;
+    padding: 10px 5px 10px 5px;
+}
+.traver_right{
+    width: 28%;
+    margin-left: 2%;
+    text-align: center;
+    padding: 10px 5px 10px 5px;
+}
+.traver_right img{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+.traver_name{
+    margin-top: 10px;
+}
+.traver_hot{
+    margin-top: 70px;
+    border-bottom: 1px solid #EFEFEF;
+    padding-bottom: 10px;
+}
+.traver_travel{
+    height: 200px;
+    border-bottom: 1px solid #EFEFEF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.traver_hover:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.traver_img{
+    width: 35%;
+    height: 80%;
+    margin-top: 10px;
+}
+.traver_content{
+    width: 63%;
+    margin-left: 2%;
+    margin-top: 10px;
+    height: 65%;
+}
+.traver_traver{
+    margin-left: 2%;
+    margin-top: 10px;
+}
+.traver_time{
+    margin-left: 5%;
+    margin-top: 10px;
+}
+.traver_page{
+    cursor: pointer;
+    margin-right: 10px;
+    border: 1px solid #FF9D00;
+    padding: 3px 8px 3px 8px;
+    width: 10%;
+}
+.traver_allPage{
+    margin-right: 10px;
+    padding: 3px 8px 3px 8px;
+    width: 10%;
+}
+.traver_pages{
+    text-align: center;
+    margin-bottom: 40px;
+    height: 30px;
+}

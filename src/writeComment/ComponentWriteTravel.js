@@ -3,6 +3,7 @@ import React from 'react';
 import Edit from './Edit';
 import $ from 'jquery';
 import ComponentAboute from '../abouteComment/CommentAbout'
+import { WRITE_TRAVER } from "../API";
 
 class CommentBox extends React.Component {
 
@@ -55,7 +56,7 @@ class CommentBox extends React.Component {
     handleSubmit = ()=>{
         this.textInputChange();
         $.ajax({
-                url:'http://localhost:8080/traverArticle/addTraverArticle',
+                url: WRITE_TRAVER,
                 data:{"title":this.refs.title.value,
                     "introduction":this.refs.introduction.value,
                     "coverImageUrl":this.state.imgUrl,
@@ -90,11 +91,12 @@ class CommentBox extends React.Component {
 
     render () {
         return (
-            <div >
+            <div>
                 <div style={{borderBottom:"1px solid #D6D6D6",width:'100%',float:"left",boxShadow:'4px 0px 4px #F0F0F0'}}/>
-                <div className="write left" style={{backgroundColor:"#ebebeb"}}>
+                <div className="write left" style={{width:"100%", backgroundColor:"#ebebeb"}}>
                     <div className="write_div">
                         <input ref="title" className="write_title radius font_14" type="text" placeholder="请在此处填写题目"/>
+
                         <input ref="dist" className="write_title radius font_14" type="text" placeholder="请在此处填写目的地"/>
                         <textarea  ref="introduction" className="write_intro radius font_14" placeholder="请在此处填写简介"/>
                         <div style={{backgroundColor:'white',width:'190px',height:'140px',border:'1px solid #D6D6D6',float:'left',marginBottom:'20px'}}>

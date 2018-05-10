@@ -1,6 +1,7 @@
 'use strict'
 import React from 'react';
 import $ from 'jquery';
+import { ONE_TRAVEL_URL, TRAVEL_DO_PRAISE } from "../API";
 
 class ArtilcleComponent extends React.Component{
 
@@ -18,7 +19,7 @@ class ArtilcleComponent extends React.Component{
     }
 
     getHotArticle(){
-        const url = 'http://localhost:8080/traverArticle/article/' + this.props.articleId;
+        const url = ONE_TRAVEL_URL + this.props.articleId;
         $.get(url,function(res){
                 this.setState({article:res});
                 this.setState({author:res.author});
@@ -35,7 +36,7 @@ class ArtilcleComponent extends React.Component{
 
     addPraise(id){
         //http://localhost:8080/traverArticle/doPraise/1
-        let url = "http://localhost:8080/traverArticle/doPraise/" + id;
+        let url = TRAVEL_DO_PRAISE + id;
         $.get(url,(res)=>{
             if(res.code == 200){
                 this.setState({praiseCount:this.state.praiseCount+1});

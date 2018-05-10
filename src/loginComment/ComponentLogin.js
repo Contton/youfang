@@ -1,6 +1,7 @@
 'use strict'
 import React from 'react';
-import $ from 'jquery'
+import $ from 'jquery';
+import {LOGIN_URL} from '../API';
 
 class ComponentLogin extends React.Component{
     userInfo = {"id":1,
@@ -21,7 +22,7 @@ class ComponentLogin extends React.Component{
         var password = this.refs.input_password.value;
         //验证用户
         $.ajax({
-            url:'http://localhost:8080/login',
+            url:LOGIN_URL,
             data:{"phoneNumber":phoneNumber,"password":password},
             type:'post',
             dataType:'json',

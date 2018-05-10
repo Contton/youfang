@@ -4,6 +4,7 @@ import img1 from '../images/1.jpg';
 import classNames from 'classnames';
 import $ from "jquery";
 import UserTitleComponent from './UserTitleComponent';
+import { USER_TRAVER } from "../API";
 
 class ComponentUser extends React.Component{
     constructor(props){
@@ -283,7 +284,7 @@ class ComponentTravel extends React.Component{
     getArticle = (pageNum)=>{
         $.ajax({
                 ///user/{id}/{pageNum}/{pageSize}
-                url:'http://localhost:8080/traverArticle/user/'+ this.state.userInfo.id + '/' + pageNum + '/' + this.state.pageSize ,
+                url: USER_TRAVER + this.state.userInfo.id + '/' + pageNum + '/' + this.state.pageSize ,
                 type:'get',
                 dataType:'json',
                 async: false,

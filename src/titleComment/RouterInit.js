@@ -12,6 +12,7 @@ import ComponentWriteTravel from '../writeComment/ComponentWriteTravel';
 import ComponentWriteStrategy from '../writeComment/ComponentWriteStrategy';
 import ComponentPlace from '../placeComment/ComponentAll';
 import ComponentUser from '../userComment/ComponentAll';
+import ComponentTraver from '../traverComment/ComponentAll';
 import ArticlePage from '../userComment/ArticlePage';
 
 class RouterInit extends Component{
@@ -64,6 +65,7 @@ class RouterInit extends Component{
                         <Route path="/login" component={ComponentLogin}/>
                         <Route path="/register" component={ComponentRegister}/>
                         <Route path="/ArticlePage/:id" component={ArticlePage}/>
+                        <Route path="/traverPage/:id" component={ComponentTraver}/>
                     </div>
                 </Router>
             </div>

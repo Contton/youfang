@@ -13,6 +13,7 @@ import './css/writeCss.css';
 import './css/placeCss.css';
 import './css/findCss.css';
 import './css/userCss.css';
+import './css/traverCss.css';
 import CommentBox from './allComment/ComponentAll';
 
 ReactDOM.render(

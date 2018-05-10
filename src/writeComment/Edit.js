@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/braft.css';
+import { EDIT_IMAGE_UPLOAD } from "../API";
 
 class Edit extends Component {
 
@@ -13,7 +14,7 @@ class Edit extends Component {
     }
 
     uploadFn = (param) => {
-            const serverURL = 'http://localhost:8080/upload';
+            const serverURL = EDIT_IMAGE_UPLOAD;
             const xhr = new XMLHttpRequest;
             const fd = new FormData();
             // libraryId可用于通过mediaLibrary示例来操作对应的媒体内容
