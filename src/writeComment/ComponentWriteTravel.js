@@ -92,7 +92,6 @@ class CommentBox extends React.Component {
     render () {
         return (
             <div>
-                <div style={{borderBottom:"1px solid #D6D6D6",width:'100%',float:"left",boxShadow:'4px 0px 4px #F0F0F0'}}/>
                 <div className="write left" style={{width:"100%", backgroundColor:"#ebebeb"}}>
                     <div className="write_div">
                         <input ref="title" className="write_title radius font_14" type="text" placeholder="请在此处填写题目"/>

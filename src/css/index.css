@@ -5,9 +5,13 @@ body {
 }
 .width{
   width: 100%;
+
 }
 .height{
   height: 100%;
+}
+.font_12{
+  font-size: 12px;
 }
 .font_14{
   font-size: 14px;
@@ -34,7 +38,7 @@ body {
   float: left;
   width: 100%;
   margin: 0 auto;
-  height: 1700px;
+  border: 1px solid red;
 }
 .radius{
   border-radius: 5px;

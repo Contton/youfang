@@ -45,10 +45,11 @@
 }
 
 .headImg{
-    padding-top: 8px;
+    height: 35px;
 }
 
 .headImg img{
+    margin-top: 8px;
     border-radius: 50%;
     width: 35px;
     height: 35px;

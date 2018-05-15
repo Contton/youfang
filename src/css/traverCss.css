@@ -1,6 +1,6 @@
 .traver{
     width: 1360px;
-    padding-top: 60px;
+    padding-top: 30px;
     margin: 0 auto;
 }
 .traver_all{
@@ -32,7 +32,6 @@
 }
 .traver_travel{
     height: 200px;
-    border-bottom: 1px solid #EFEFEF;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
@@ -75,4 +74,38 @@
     text-align: center;
     margin-bottom: 40px;
     height: 30px;
+}
+
+.user_info_div{
+    float: right;
+    width: 300px;
+    height: 300px;
+    border-left: 1px dashed  #a3a3a3;
+}
+
+.user_info_img img{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+}
+
+.user_info_img{
+    height: 130px;
+    width: 130px;
+    margin-left: 83px;
+    margin-top: 20px;
+
+}
+
+.user_info_nickname{
+    padding: 10px;
+    font-size: 18px;
+    color: #ffaa4e;
+    text-align: center;
+}
+
+.user_info_intro {
+    padding: 10px;
+    font-size: 12px;
+    color: #666666;
 }

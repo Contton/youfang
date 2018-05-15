@@ -2,16 +2,18 @@
 import React from 'react';
 import '../css/comment.css'
 import $ from "jquery";
+
 import { GET_COMMENT_BY_ARTICLEID, ADD_COMMENT } from "../API";
 
 class CommentList extends React.Component{
     constructor(props){
         super(props);
-        this.state = {commentList:[]};
+        this.state = {commentList:null};
     }
 
-    componentDidMount(){
+    componentWillReceiveProps(nextProps){
         this.getCommentListDate();
+        window.scrollTo(0,0);
     }
 
     doWatch(){
@@ -19,39 +21,44 @@ class CommentList extends React.Component{
     }
 
     getCommentListDate(){
-        let url = this.GET_COMMENT_BY_ARTICLEID + this.props.articleId;
-        $.ajax({
-            url:url,
-            type:'get',
-            dataType:'json',
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            success:(data)=>{
-               this.setState({commentList:data});
-            },
-            error:()=>{
-                alert("请检查你的网络");
-            }
-        });
+        if(this.props.articleId != '' && this.props.articleId != null) {
+            let url = GET_COMMENT_BY_ARTICLEID + this.props.articleId;
+            $.ajax({
+                url: url,
+                type: 'get',
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: (data) => {
+                    this.setState({commentList: data});
+                },
+                error: () => {
+                    alert("请检查你的网络");
+                }
+            });
+        }
     }
 
     renderComment(commentList){
         let list =  [];
-        for(let i = 0;i < commentList.length;i++) {
-            list.push(
-                <div className="commentItem">
-                    <div className="commentUser">
-                        <div className="commentUserImg left"><img
-                            src={commentList[i].userBaseInfo.headImageUrl}/>&nbsp;&nbsp;
+        if(commentList != null) {
+            for (let i = 0; i < commentList.length; i++) {
+                list.push(
+                    <div className="commentItem">
+                        <div className="commentUser">
+                            <div className="commentUserImg left"><img
+                                src={commentList[i].userBaseInfo.headImageUrl}/>&nbsp;&nbsp;
+                            </div>
+                            <div className="commentUserNickName">{commentList[i].userBaseInfo.nickName}<span
+                                className="doWatch" onClick={this.doWatch.bind(this)}>+关注</span></div>
                         </div>
-                        <div className="commentUserNickName">{commentList[i].userBaseInfo.nickName}<span className="doWatch" onClick={this.doWatch.bind(this)}>+关注</span></div>
+                        <div className="commentText">{commentList[i].commentText}</div>
+                        <div className="commentTime">{commentList[i].createTime}</div>
                     </div>
-                    <div className="commentText">{commentList[i].commentText}</div>
-                    <div className="commentTime">{commentList[i].createTime}</div>
-                </div>
-            );
+                );
+            }
         }
         return list;
 
@@ -59,11 +66,12 @@ class CommentList extends React.Component{
 
     submitComment(){
         let inputText = this.refs.commentInputArea.value;
+        this.refs.commentInputArea.value = "";
         if(inputText === ''){
             alert("评论不能为空！");
             return
         }
-        let url = this.ADD_COMMENT;
+        let url = ADD_COMMENT;
         $.ajax({
             url:url,
             type:'post',
@@ -88,10 +96,11 @@ class CommentList extends React.Component{
 
 
     render(){
+
+
         return(
                 <div className="commentBox">
                     <div className="commentDiv">
-                        <div className="commentLine"/>
                         <div className="commentTitle">评论列表</div>
                         <div className="commentList">
                             {this.renderComment(this.state.commentList)}

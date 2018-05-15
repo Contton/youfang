@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import $ from "jquery";
 import UserTitleComponent from './UserTitleComponent';
 import { USER_TRAVER } from "../API";
+import ComponentWriteStrategy from "../writeComment/ComponentWriteStrategy";
+import ComponentWriteTravel from "../writeComment/ComponentWriteTravel";
 
 class ComponentUser extends React.Component{
     constructor(props){
@@ -56,7 +58,7 @@ class ComponentUser extends React.Component{
         });
         return(
             <div className="user_com">
-                <UserTitleComponent/>
+                <UserTitleComponent push={this.props.push} />
                 <div className="user">
                     <div>
                         <div className="user_all">
@@ -83,6 +85,7 @@ class ComponentUser extends React.Component{
                                     <Route path="/userCenter/information" component={ComponentUserInfo}/>
                                     <Route exact path="/userCenter/travel" component={ComponentTravel}/>
                                     <Route path="/userCenter/fans" component={ComponentFans}/>
+                                    <Redirect path="/userCenter" exact={true} to="/userCenter/travel" />
                                 </div>
                         </div>
                     </div>

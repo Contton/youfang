@@ -7,8 +7,8 @@ class ComponentAll extends React.Component{
     render(){
         return(
             <div>
-                <ComponentTitle/>
-                <ComponentTraver/>
+                <ComponentTitle push={this.props.history.push}/>
+                <ComponentTraver push={this.props.history.push} userId = {this.props.match.params.id}/>
                 <Aboute/>
             </div>
         );

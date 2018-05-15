@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 import CommentTitle from './CommentTitle';
 import ComponentHome from '../homeComment/ComponentHome';
@@ -13,7 +13,8 @@ import ComponentWriteStrategy from '../writeComment/ComponentWriteStrategy';
 import ComponentPlace from '../placeComment/ComponentAll';
 import ComponentUser from '../userComment/ComponentAll';
 import ComponentTraver from '../traverComment/ComponentAll';
-import ArticlePage from '../userComment/ArticlePage';
+import UserTitleComponent from '../userComment/UserTitleComponent.js';
+import ArticlePage  from '../userComment/ArticlePage.js';
 
 class RouterInit extends Component{
     constructor(props){
@@ -49,16 +50,13 @@ class RouterInit extends Component{
             <div className="title1_all width font_16">
                 <Router>
                     <div>
-                        <Route exact>
+                        <Route>
                             <div>
                              <Route path="/home" component={CommentTitle}/>
                              <Route path="/home/index" component={ComponentHome}/>
                              <Route path="/home/hotPlace" component={ComponentPlace}/>
                              <Route path="/home/hotStrategy" component={ComponentStrategy}/>
                              <Route path="/home/hotTravel/:id" component={ComponentStrategyPage}/>
-                             <Route path="/home/writeStrategy" component={ComponentWriteStrategy}/>
-                             <Route path="/home/writeTravel" component={ComponentWriteTravel}/>
-                             <Redirect path="/" to={{pathname: '/home/index'}} />
                             </div>
                         </Route>
                         <Route path="/userCenter" component={ComponentUser}/>
@@ -66,6 +64,10 @@ class RouterInit extends Component{
                         <Route path="/register" component={ComponentRegister}/>
                         <Route path="/ArticlePage/:id" component={ArticlePage}/>
                         <Route path="/traverPage/:id" component={ComponentTraver}/>
+                        <Route path="/blackTitle" component={UserTitleComponent}/>
+                        <Route path="/blackTitle/writeStrategy" component={ComponentWriteStrategy}/>
+                        <Route path="/blackTitle/writeTravel" component={ComponentWriteTravel}/>
+                        <Redirect path="/" exact={true} to="/home/index" />
                     </div>
                 </Router>
             </div>

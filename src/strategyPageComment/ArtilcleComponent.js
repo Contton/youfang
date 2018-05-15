@@ -1,7 +1,10 @@
 'use strict'
 import React from 'react';
 import $ from 'jquery';
-import { ONE_TRAVEL_URL, TRAVEL_DO_PRAISE } from "../API";
+import CommentList from '../userComment/CommentList';
+
+import {ONE_TRAVEL_URL, TRAVEL_DO_PRAISE, USER_TRAVER} from "../API";
+import BackTop from "../util/BackTop";
 
 class ArtilcleComponent extends React.Component{
 
@@ -9,21 +12,51 @@ class ArtilcleComponent extends React.Component{
         super(props);
         this.state = {
             article:'',
+            article_id: '',
             author:'',
-            praiseCount:0
+            praiseCount:0,
+            pageSize:5,
+            articleList:[]
         };
     }
 
-    componentDidMount(){
-        this.getHotArticle();
-    }
 
-    getHotArticle(){
-        const url = ONE_TRAVEL_URL + this.props.articleId;
+    componentDidMount(){
+        this.getArticle(this.props.articleId);
+    }
+    //获取作者同类型文章
+        getOtherArticleByAuthorId = (id)=>{
+            $.ajax({
+                    ///user/{id}/{pageNum}/{pageSize}
+                    url: USER_TRAVER + id + '/1' + '/' + this.state.pageSize ,
+                    type:'get',
+                    dataType:'json',
+                    async: false,
+                    xhrFields: {    //携带cookies
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    success:(data)=>{
+                        console.log(data);
+                        //跳转到首页
+                        this.setState({articleList:data.list});
+                    },
+                    error:()=>{
+                        alert("请检查你的网络");
+                        //跳转到首页
+                    }
+                }
+            );
+        }
+
+    getArticle(id){
+        const url = ONE_TRAVEL_URL + id;
         $.get(url,function(res){
                 this.setState({article:res});
+                this.setState({article_id:res.traverArticleId});
                 this.setState({author:res.author});
                 this.setState({praiseCount:res.praiseCount});
+                this.getOtherArticleByAuthorId(res.author.id);
             }.bind(this)
         )
     }
@@ -44,8 +77,28 @@ class ArtilcleComponent extends React.Component{
         })
     }
 
+    goEnd(){
+        const e = document.documentElement.scrollHeight || document.body.scrollHeight;
+        setTimeout(function() {
+            window.scrollTo(0,e-890);
+        }, 100);
+    }
+
+    renderAuthorArticle(articleList){
+        let list = [];
+        for(let i = 0;i < articleList.length;i++){
+            list.push(
+                <div className="more_div">
+                    <div onClick={()=>{this.getArticle(articleList[i].traverArticleId)}} className="point page1_moreOne width left font_14">{articleList[i].title}</div>
+                    <div className="createTimeSty width left font_12">{articleList[i].createTime}</div>
+                </div>)
+        }
+        return list;
+    }
+
     render(){
         return(
+            <div>
             <div className="articlePage">
             <div className="page1">
                 <div className="page1_all">
@@ -65,19 +118,20 @@ class ArtilcleComponent extends React.Component{
                             {this.addContent()}
                         </div>
                     </div>
-                    <div className="page1_right left">
-                        <div onClick={this.addPraise.bind(this,this.state.article.traverArticleId)} className="page1_button color_white font_14 radius left background">点赞</div>
-                        <div className="page1_button color_white font_14 radius left background">收藏</div>
-                        <div className="page1_button color_white font_14 radius left background">评论</div>
+                    <div className="page1_right">
+                        <div onClick={this.addPraise.bind(this,this.state.article.traverArticleId)} className="page1_button page1_button_left color_white font_14 radius left background">点赞</div>
+                        <div className="page1_button color_white font_12 radius left background">收藏</div>
+                        <div onClick={this.goEnd.bind(this)} className="page1_button color_white font_12 radius left background">评论</div>
                         <div className="page1_more left">
-                            <div className="page1_moreTitle width font_16">该作者其他文章</div>
-                            <a href="#" className="page1_moreOne width left color_orange font_14">夜游天安门广场欣赏夜灯的效果等</a>
-                            <a href="#" className="page1_moreOne width left color_orange font_14">其他文章2</a>
-                            <a href="#" className="page1_moreOne width left color_orange font_14">其他文章3</a>
+                            <div className="page1_moreTitle width font_14">该作者其他文章</div>
+                            {this.renderAuthorArticle(this.state.articleList)}
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
+            <CommentList articleId={this.state.article_id}/>
+            <BackTop/>
             </div>
         );
     }

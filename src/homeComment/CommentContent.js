@@ -19,13 +19,13 @@ class Traveller extends React.Component{
 }
 class Strategy extends React.Component{
     render(){
-        return(
-            <div className="strategy_one left width">
-                <img src={this.props.strategy.picture}/>
-                <div className="traveller_name font18 color_orange">{this.props.strategy.name}</div>
-                <div className="traveller_intro color_grey">{this.props.strategy.introduce}</div>
-            </div>
-        )
+            return(
+                <div className="strategy_one left width">
+                    <img src={this.props.strategy.picture}/>
+                    <div className="traveller_name font18 color_orange">{this.props.strategy.name}</div>
+                    <div className="traveller_intro color_grey">{this.props.strategy.introduce}</div>
+                </div>
+            )
     }
 }
 class Place extends React.Component{

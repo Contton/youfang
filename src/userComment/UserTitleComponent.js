@@ -15,6 +15,12 @@ class UserTitleComponent extends React.Component{
         };
     }
 
+    logout(){
+        sessionStorage.removeItem("userInfo");
+        this.setState({"userInfo":null});
+        this.props.push("/home/index");
+    }
+
     renderHeaderCenter(userInfo){
         if(userInfo == null){
             return(<div className="headerCenter">
@@ -31,9 +37,29 @@ class UserTitleComponent extends React.Component{
                 <div className="headerCenter">
                     <Link className="TopTitleCommonFont" to="/userCenter">
                         <div className="headImg left"><img src={userInfo.headImageUrl}/>&nbsp;&nbsp;</div>
-                        <span className="headerCenter_Font">{userInfo.nickName}</span>
+                        <span className="headerCenter_Font left">{userInfo.nickName}</span>
                     </Link>
+                    <div className="title1_exit font_14 left color_white" onClick={this.logout.bind(this)}>[退出]</div>
                 </div>);
+        }
+    }
+
+    renderTitleWrite(){
+        if(this.state.userInfo != null){
+            let headerSelectStyle = classNames({
+                TopTitleCommon:true,
+                left:true,
+            });
+            return(
+                <div>
+                    <div className={headerSelectStyle}>
+                        <Link className="TopTitleCommonFont" to="/blackTitle/writeTravel">写游记</Link>
+                    </div>
+                    <div className={headerSelectStyle}>
+                    <Link className="TopTitleCommonFont" to="/blackTitle/writeStrategy">写攻略</Link>
+                    </div>
+                </div>
+            );
         }
     }
 
@@ -59,6 +85,7 @@ class UserTitleComponent extends React.Component{
                             <div className={headerSelectStyle}>
                                 <Link className="TopTitleCommonFont" to="/home/index">问答</Link>
                             </div>
+                            {this.renderTitleWrite()}
                             {this.renderHeaderCenter(this.state.userInfo)}
                         </div>
                     </div>

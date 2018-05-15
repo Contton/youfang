@@ -9,7 +9,7 @@ class ComponentAll extends React.Component{
     render(){
         return(
             <div>
-                <ComponentUser/>
+                <ComponentUser push={this.props.history.push}/>
                 <ComponentAbout/>
             </div>
         );
