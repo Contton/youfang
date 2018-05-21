@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import $ from "jquery";
 import UserTitleComponent from './UserTitleComponent';
 import { USER_TRAVER } from "../API";
-import ComponentWriteStrategy from "../writeComment/ComponentWriteStrategy";
-import ComponentWriteTravel from "../writeComment/ComponentWriteTravel";
+import {doPost} from '../util/getDataByAjax';
 
 class ComponentUser extends React.Component{
     constructor(props){
@@ -97,99 +96,65 @@ class ComponentUser extends React.Component{
 }
 
 class ComponentFans extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.state = {fansList:null};
+    }
+
+    doSuccess(data){
+        //alert(JSON.stringify(data));
+        this.setState({fansList:data});
+    }
+
+    doErr(data){
+        alert(data)
+    }
+
+    renderFansList(fans){
+        let list = []
+        if(fans != null){
+            let fList = fans.fansList;
+            for(let i = 0;i < fList.length;i++){
+                list.push(
+                    <div className="userFans_one left radius">
+                        <img src={fList[i].userBaseInfo.headImageUrl}/>
+                        <div className="font_16 width userFans_name">{fList[i].userBaseInfo.nickName}</div>
+                        <div className="userFans_travel userFans_left left font_14 color_grey">
+                            <div className="userFans_number font_weight">{fList[i].traverArticleCount}</div>
+                            <div className="userFans_number">游记</div>
+                        </div>
+                        <div className="userFans_travel userFans_border left font_14 color_grey">
+                            <div className="userFans_number font_weight">{fList[i].strategyCount}</div>
+                            <div className="userFans_number">攻略</div>
+                        </div>
+                        <div className="userFans_travel userFans_border left font_14 color_grey">
+                            <div className="userFans_number font_weight">{fList[i].fansCount}</div>
+                            <div className="userFans_number">粉丝</div>
+                        </div>
+                        <input className="userFans_button radius font_14 left" type="button" value="已关注"/>
+                        <input className="userFans_button radius font_14 left background userFans_margin" type="button" value="发私信"/>
+                    </div>
+                )
+            }
+        }
+        return list;
+    }
+
+    //获取粉丝列表
+    getFansList(url,success,err){
+        doPost(url,success,err);
+    }
+
+    componentDidMount(){
+        this.getFansList('http://localhost:8080/getFansListById/1',this.doSuccess.bind(this),this.doErr.bind(this));
+    }
+
+
     render(){
         return(
             <div className="userInfo_all width">
-                <div className="userFans_one left radius">
-                    <img src={img1}/>
-                    <div className="font_16 width userFans_name">佟丽娅</div>
-                    <div className="userFans_travel userFans_left left font_14 color_grey">
-                        <div className="userFans_number font_weight">34</div>
-                        <div className="userFans_number">游记</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">12</div>
-                        <div className="userFans_number">攻略</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">344434</div>
-                        <div className="userFans_number">粉丝</div>
-                    </div>
-                    <input className="userFans_button radius font_14 left" type="button" value="已关注"/>
-                    <input className="userFans_button radius font_14 left background userFans_margin" type="button" value="发私信"/>
-                </div>
-                <div className="userFans_one radius left">
-                    <img src={img1}/>
-                    <div className="font_16 width userFans_name">佟丽娅</div>
-                    <div className="userFans_travel userFans_left left font_14 color_grey">
-                        <div className="userFans_number font_weight">34</div>
-                        <div className="userFans_number">游记</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">12</div>
-                        <div className="userFans_number">攻略</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">344434</div>
-                        <div className="userFans_number">粉丝</div>
-                    </div>
-                    <input className="userFans_button radius font_14 left" type="button" value="已关注"/>
-                    <input className="userFans_button radius font_14 left background userFans_margin" type="button" value="发私信"/>
-                </div>
-                <div className="userFans_one radius left">
-                    <img src={img1}/>
-                    <div className="font_16 width userFans_name">佟丽娅</div>
-                    <div className="userFans_travel userFans_left left font_14 color_grey">
-                        <div className="userFans_number font_weight">34</div>
-                        <div className="userFans_number">游记</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">12</div>
-                        <div className="userFans_number">攻略</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">344434</div>
-                        <div className="userFans_number">粉丝</div>
-                    </div>
-                    <input className="userFans_button radius font_14 left" type="button" value="已关注"/>
-                    <input className="userFans_button radius font_14 left background userFans_margin" type="button" value="发私信"/>
-                </div>
-                <div className="userFans_one radius left">
-                    <img src={img1}/>
-                    <div className="font_16 width userFans_name">佟丽娅</div>
-                    <div className="userFans_travel userFans_left left font_14 color_grey">
-                        <div className="userFans_number font_weight">34</div>
-                        <div className="userFans_number">游记</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">12</div>
-                        <div className="userFans_number">攻略</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">344434</div>
-                        <div className="userFans_number">粉丝</div>
-                    </div>
-                    <input className="userFans_button radius font_14 left" type="button" value="已关注"/>
-                    <input className="userFans_button radius font_14 left background userFans_margin" type="button" value="发私信"/>
-                </div>
-                <div className="userFans_one radius left">
-                    <img src={img1}/>
-                    <div className="font_16 width userFans_name">佟丽娅</div>
-                    <div className="userFans_travel userFans_left left font_14 color_grey">
-                        <div className="userFans_number font_weight">34</div>
-                        <div className="userFans_number">游记</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">12</div>
-                        <div className="userFans_number">攻略</div>
-                    </div>
-                    <div className="userFans_travel userFans_border left font_14 color_grey">
-                        <div className="userFans_number font_weight">344434</div>
-                        <div className="userFans_number">粉丝</div>
-                    </div>
-                    <input className="userFans_button radius font_14 left" type="button" value="已关注"/>
-                    <input className="userFans_button radius font_14 left background userFans_margin" type="button" value="发私信"/>
-                </div>
+                {this.renderFansList(this.state.fansList)}
             </div>
         );
     }
