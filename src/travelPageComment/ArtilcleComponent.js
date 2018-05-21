@@ -5,7 +5,9 @@ import CommentList from '../userComment/CommentList';
 
 import {ONE_TRAVEL_URL, TRAVEL_DO_PRAISE, USER_TRAVER} from "../API";
 import BackTop from "../util/BackTop";
+
 class ArtilcleComponent extends React.Component{
+
     constructor(props){
         super(props);
         this.state = {
@@ -17,6 +19,8 @@ class ArtilcleComponent extends React.Component{
             articleList:[]
         };
     }
+
+
     componentDidMount(){
         this.getArticle(this.props.articleId);
     }
@@ -44,6 +48,7 @@ class ArtilcleComponent extends React.Component{
                 }
             );
         }
+
     getArticle(id){
         const url = ONE_TRAVEL_URL + id;
         $.get(url,function(res){
@@ -55,11 +60,13 @@ class ArtilcleComponent extends React.Component{
             }.bind(this)
         )
     }
+
     addContent(){
         return(
             <div dangerouslySetInnerHTML={{__html: this.state.article.content}}/>
         );
     }
+
     addPraise(id){
         //http://localhost:8080/traverArticle/doPraise/1
         let url = TRAVEL_DO_PRAISE + id;
@@ -69,12 +76,14 @@ class ArtilcleComponent extends React.Component{
             }
         })
     }
+
     goEnd(){
         const e = document.documentElement.scrollHeight || document.body.scrollHeight;
         setTimeout(function() {
             window.scrollTo(0,e-890);
         }, 100);
     }
+
     renderAuthorArticle(articleList){
         let list = [];
         for(let i = 0;i < articleList.length;i++){
@@ -86,6 +95,7 @@ class ArtilcleComponent extends React.Component{
         }
         return list;
     }
+
     render(){
         return(
             <div>
@@ -104,12 +114,6 @@ class ArtilcleComponent extends React.Component{
                             <div className="page1_intro left font_14">333</div>
                             <div className="page1_like left font_14 color_grey">已有<span className="color_orange">2399</span>名粉丝</div>
                         </div>
-                        <div className="page1_space width left font_20 color_orange">所需费用</div>
-                        <div className="page1_space page1_bottom width left font_14">300RMB</div>
-                        <div className="page1_space width left font_20 color_orange">所需时间</div>
-                        <div className="page1_space page1_bottom width left font_14">3天1夜</div>
-                        <div className="page1_space width left font_20 color_orange">交通路线</div>
-                        <div className="page1_space page1_bottom width left font_14">921路公交直达</div>
                         <div className="page1_content left">
                             {this.addContent()}
                         </div>

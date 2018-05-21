@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 import CommentTitle from './CommentTitle';
 import ComponentHome from '../homeComment/ComponentHome';
-import ComponentStrategy from '../strategyComment/ComponentAll';
+import ComponentStrategy from '../strategyPageComment/ComponentStrategyPage';
 import ComponentLogin from '../loginComment/ComponentLogin';
 import ComponentRegister from '../registerComment/ComponentRegister';
-import ComponentStrategyPage from '../strategyPageComment/ComponentStrategyPage';
+import ComponentStrategyPage from '../travelPageComment/ComponentTravelPage';
 import ComponentWriteTravel from '../writeComment/ComponentWriteTravel';
 import ComponentWriteStrategy from '../writeComment/ComponentWriteStrategy';
 import ComponentPlace from '../placeComment/ComponentAll';

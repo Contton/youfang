@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
-import img1 from '../images/1.jpg';
-import classNames from 'classnames';
 import $ from "jquery";
 import UserTitleComponent from './UserTitleComponent';
 import { USER_TRAVER } from "../API";
@@ -15,18 +13,12 @@ class ComponentUser extends React.Component{
             var userInfo = JSON.parse(u);
         }
         this.state = {
-            unchang:'修改个人简介',
-            changed:'保存',
-            change:false,
             fans:0,
             focus:0,
             fans_number:34,
             focus_number:55,
             userInfo:userInfo,
         };
-    }
-    dealDiscribe(){
-        this.setState({change : !this.state.change});
     }
     dealFansOver(index, event){
         if(index === 1){
@@ -43,18 +35,6 @@ class ComponentUser extends React.Component{
         }
     }
     render(){
-        let discribeShow = classNames({
-            user_discribe: true,
-            display_show: true,
-        });
-        let discribeHidden = classNames({
-            user_discribe: true,
-            display_show: false,
-        });
-        let headerSelectStyle = classNames({
-            TopTitleCommon:true,
-            left:true,
-        });
         return(
             <div className="user_com">
                 <UserTitleComponent push={this.props.push} />
@@ -65,8 +45,6 @@ class ComponentUser extends React.Component{
                             <div className="user_info left">
                                 <img src={this.state.userInfo.headImageUrl}/>
                                 <div className="user_name font_16">{this.state.userInfo.nickName}</div>
-                                <div onClick={this.dealDiscribe.bind(this)} className="user_change font_14">{this.state.change === false ? this.state.unchang : this.state.changed}</div>
-                                <input type="text" className={this.state.change === false ? discribeHidden : discribeShow}/>
                                 <div onMouseOver={this.dealFansOver.bind(this, 1)} onMouseOut={this.dealFansOut.bind(this, 1)} className="user_fans left font_14 fans_border_right">{this.state.fans === 0 ? '粉丝' : this.state.fans_number}</div>
                                 <div onMouseOver={this.dealFansOver.bind(this, 2)} onMouseOut={this.dealFansOut.bind(this, 2)} className="user_fans left font_14">{this.state.focus === 0 ? '关注' : this.state.focus_number}</div>
                             </div>
@@ -334,5 +312,4 @@ class ComponentTravel extends React.Component{
         );
     }
 }
-
 export default ComponentUser;

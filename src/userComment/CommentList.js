@@ -17,7 +17,7 @@ class CommentList extends React.Component{
     }
 
     doWatch(){
-        alert("关注成功")
+        alert("关注成功");
     }
 
     getCommentListDate(){

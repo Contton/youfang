@@ -56,7 +56,7 @@ class UserTitleComponent extends React.Component{
                         <Link className="TopTitleCommonFont" to="/blackTitle/writeTravel">写游记</Link>
                     </div>
                     <div className={headerSelectStyle}>
-                    <Link className="TopTitleCommonFont" to="/blackTitle/writeStrategy">写攻略</Link>
+                        <Link className="TopTitleCommonFont" to="/blackTitle/writeStrategy">写攻略</Link>
                     </div>
                 </div>
             );

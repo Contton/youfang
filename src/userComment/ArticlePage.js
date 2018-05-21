@@ -1,6 +1,6 @@
 'use strict'
 import React from 'react';
-import ArticleComponent from '../strategyPageComment/ArtilcleComponent';
+import ArticleComponent from '../travelPageComment/ArtilcleComponent';
 
 import UserTitleComponent from './UserTitleComponent';
 import ComponentAbout from '../abouteComment/CommentAbout';

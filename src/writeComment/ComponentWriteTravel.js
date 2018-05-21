@@ -108,20 +108,7 @@ class CommentBox extends React.Component {
                                 <Edit getHtmlContext={this.getHtmlContext}/>
                             </div>
                     </div>
-                        <div style={{
-                            float:'right',
-                            lineHeight:'30px',
-                            width:'80px',
-                            height:'30px',
-                            borderRadius:'5px',
-                            fontFamily:'微软雅黑',
-                            color:'#fff',
-                            backgroundColor:'#FF9E00',
-                            cursor:'pointer',
-                            paddingLeft:'50px',
-                            marginTop:'50px',
-                            marginBottom:'100px'
-                        }} onClick={this.handleSubmit}>提交</div>
+                        <div className="write_button radius right background" onClick={this.handleSubmit}>提交</div>
                     </div>
                 </div>
                 <ComponentAboute/>

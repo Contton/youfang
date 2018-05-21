@@ -172,3 +172,10 @@
 .page1_moreOne:hover{
     text-decoration: underline;
 }
+.page1_space{
+    margin-top: 20px;
+}
+.page1_bottom{
+    border-bottom: 1px dashed #999999;
+    padding-bottom: 5px;
+}
