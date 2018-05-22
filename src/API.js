@@ -1,4 +1,4 @@
-const HOST = "http://172.20.10.5:8080"; //主机地址
+const HOST = "http://localhost:3000"; //主机地址
 
 export const LOGIN_URL = HOST + "/login";   //登录
 export const REGIST_URL = HOST + "/regist";   //注册

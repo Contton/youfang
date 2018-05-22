@@ -22,7 +22,7 @@ class ComponentTitle extends Component{
             clicked:'1',
             userInfo:userInfo,
             province:'',
-            city:'西安',
+            city:'',
         };
     }
     logout(){
@@ -59,24 +59,15 @@ class ComponentTitle extends Component{
     changeMouserOver(index){
         this.setState({mouse_over:index});
     }
-
-    componentDidMount(){
-
-    }
-
     componentWillMount(){
         this.getCity();
     }
     getCity(){
-        var remote_ip_info;
-        $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(response,status){
-            if(true){
-            //if(remote_ip_info.ret == '1'){
-                //alert(remote_ip_info.country + remote_ip_info.province + "省" + remote_ip_info.city + "市" + remote_ip_info.district + "区");
-                //this.setState({province: remote_ip_info.province, city: remote_ip_info.city});
-            }else{
-                alert('没有找到匹配的IP地址信息！');
-            }
+        $.getScript('http://ip.ws.126.net/ipquery', function() {
+            this.setState({
+                province:'window.localAddress.province',
+                city:'window.localAddress.city',
+            });
         });
     }
     render(){
