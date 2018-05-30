@@ -3,7 +3,7 @@ import React from 'react';
 import Edit from './Edit';
 import $ from 'jquery';
 import ComponentAboute from '../abouteComment/CommentAbout'
-import { WRITE_TRAVER } from "../API";
+import {EDIT_IMAGE_UPLOAD, WRITE_TRAVER} from "../API";
 
 class CommentBox extends React.Component {
 
@@ -13,13 +13,6 @@ class CommentBox extends React.Component {
             htmlContent:"",
             imgUrl:""
         };
-    }
-
-    textInputChange(){
-        alert(this.refs.title.value);
-        alert(this.refs.dist.value);
-        alert(this.refs.introduction.value);
-        alert(this.state.htmlContent);
     }
 
     getHtmlContext = (htmlContent)=>{
@@ -39,7 +32,7 @@ class CommentBox extends React.Component {
         e.preventDefault();
         let data = e.target;
 
-        const serverURL = 'http://localhost:8080/upload';
+        const serverURL = EDIT_IMAGE_UPLOAD;
         const xhr = new XMLHttpRequest;
         const fd = new FormData();
 
@@ -54,7 +47,6 @@ class CommentBox extends React.Component {
     }
 
     handleSubmit = ()=>{
-        this.textInputChange();
         $.ajax({
                 url: WRITE_TRAVER,
                 data:{"title":this.refs.title.value,

@@ -2,8 +2,8 @@
 import React from 'react';
 import '../css/comment.css'
 import $ from "jquery";
-
-import { GET_COMMENT_BY_ARTICLEID, ADD_COMMENT } from "../API";
+import {doGet} from "../util/getDataByAjax";
+import {DO_WATCH} from "../API";
 
 class CommentList extends React.Component{
     constructor(props){
@@ -16,13 +16,18 @@ class CommentList extends React.Component{
         window.scrollTo(0,0);
     }
 
-    doWatch(){
-        alert("关注成功");
+    doWatch(id){
+        doGet(DO_WATCH + id,()=>{
+            alert("关注成功");
+        },()=>{
+            alert("关注失败");
+        })
+
     }
 
     getCommentListDate(){
         if(this.props.articleId != '' && this.props.articleId != null) {
-            let url = GET_COMMENT_BY_ARTICLEID + this.props.articleId;
+            let url = this.props.url + this.props.articleId;
             $.ajax({
                 url: url,
                 type: 'get',
@@ -52,7 +57,7 @@ class CommentList extends React.Component{
                                 src={commentList[i].userBaseInfo.headImageUrl}/>&nbsp;&nbsp;
                             </div>
                             <div className="commentUserNickName">{commentList[i].userBaseInfo.nickName}<span
-                                className="doWatch" onClick={this.doWatch.bind(this)}>+关注</span></div>
+                                className="doWatch" onClick={this.doWatch.bind(this,commentList[i].userBaseInfo.id)}>+关注</span></div>
                         </div>
                         <div className="commentText">{commentList[i].commentText}</div>
                         <div className="commentTime">{commentList[i].createTime}</div>
@@ -65,33 +70,38 @@ class CommentList extends React.Component{
     }
 
     submitComment(){
-        let inputText = this.refs.commentInputArea.value;
-        this.refs.commentInputArea.value = "";
-        if(inputText === ''){
-            alert("评论不能为空！");
-            return
-        }
-        let url = ADD_COMMENT;
-        $.ajax({
-            url:url,
-            type:'post',
-            data:{commentText:inputText,articleId:this.props.articleId},
-            dataType:'json',
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            success:(data)=>{
-                if(data.code === '200'){
-                    this.getCommentListDate();
-                }else{
-                    alert(data.data);
-                }
-            },
-            error:()=>{
-                alert("请检查你的网络");
+        let u = sessionStorage.getItem("userInfo");
+        if(u != null && u !== "") {
+            let inputText = this.refs.commentInputArea.value;
+            this.refs.commentInputArea.value = "";
+            if (inputText === '') {
+                alert("评论不能为空！");
+                return
             }
-        });
+            let url = this.props.addurl;
+            $.ajax({
+                url: url,
+                type: 'post',
+                data: {commentText: inputText, articleId: this.props.articleId},
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: (data) => {
+                    if (data.code === '200') {
+                        this.getCommentListDate();
+                    } else {
+                        alert(data.data);
+                    }
+                },
+                error: () => {
+                    alert("请检查你的网络");
+                }
+            });
+        }else {
+            alert("请登录！")
+        }
     }
 
 

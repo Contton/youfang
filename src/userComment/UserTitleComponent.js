@@ -35,7 +35,7 @@ class UserTitleComponent extends React.Component{
         }else {
             return (
                 <div className="headerCenter">
-                    <Link className="TopTitleCommonFont" to="/userCenter">
+                    <Link className="TopTitleCommonFont" to="/userCenter/travel">
                         <div className="headImg left"><img src={userInfo.headImageUrl}/>&nbsp;&nbsp;</div>
                         <span className="headerCenter_Font left">{userInfo.nickName}</span>
                     </Link>

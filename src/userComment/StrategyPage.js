@@ -1,11 +1,11 @@
 'use strict'
 import React from 'react';
-import ArticleComponent from '../travelPageComment/ArtilcleComponent';
+import ArticleComponent from '../strategyPageComment/ArtilcleComponent';
 import UserTitleComponent from './UserTitleComponent';
 import ComponentAbout from '../abouteComment/CommentAbout';
 import '../css/comment.css'
 
-class ArticlePage extends React.Component{
+class StrategyPage extends React.Component{
 
     constructor(props){
         super(props);
@@ -23,5 +23,4 @@ class ArticlePage extends React.Component{
         );
     }
 }
-
-export default ArticlePage;
+export default StrategyPage;

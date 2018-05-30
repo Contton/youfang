@@ -1,16 +1,13 @@
 import React from 'react';
 import $ from "jquery";
-import {USER_TRAVER} from "../API";
+import {SEARCH, USER_TRAVER} from "../API";
 
-class ComponentTraver extends React.Component{
+class StrategyList extends React.Component{
 
     constructor(props){
         super(props)
         this.state = {
-            travel_count:30,
-            travel_answer:549,
-            travel_read:1035,
-            data:[],
+            reslist:[],
             pageNum:1,
             pageSize:4,
             total:0,
@@ -38,7 +35,7 @@ class ComponentTraver extends React.Component{
         let list = [];
         if(data != null) {
             for (let i = 0; i < data.length; i++) {
-                let id = '/ArticlePage/' + data[i].traverArticleId;
+                let id = '/StrategyPage/' + data[i].id;
                 list.push(
                     <div className="userTravel_list radius" onClick={()=>{this.props.push(id)}}>
                         <img src={data[i].coverImageUrl}/>
@@ -52,11 +49,15 @@ class ComponentTraver extends React.Component{
         return list;
     }
 
-    getArticle = (pageNum)=>{
+    getArticle = ()=>{
         $.ajax({
-                ///user/{id}/{pageNum}/{pageSize}
-                url: USER_TRAVER + this.props.userId + '/' + pageNum + '/' + this.state.pageSize ,
-                type:'get',
+                url: SEARCH,
+                type:'POST',
+                data:{
+                    value:this.props.value,
+                    traverPageNum:1,
+                    StrategyPageNum:1,
+                },
                 dataType:'json',
                 async: false,
                 xhrFields: {    //携带cookies
@@ -66,9 +67,12 @@ class ComponentTraver extends React.Component{
                 success:(data)=>{
                     console.log(data);
                     //跳转到首页
-                    this.setState({data:data.list});
-                    this.setState({total:data.total});
-                    this.setState({navigatepageNums:data.navigatepageNums});
+                    this.setState({reslist:data.pageInfoTraver.list});
+                    this.setState({total:data.pageInfoTraver.total});
+                    this.setState({navigatepageNums:data.pageInfoTraver.navigatepageNums});
+                    /*
+
+                    */
                 },
                 error:()=>{
                     alert("请检查你的网络");
@@ -96,52 +100,53 @@ class ComponentTraver extends React.Component{
             this.getArticle(this.state.pageNum);
         });
     };
+    renderPage(){
+        let pageStyle = {
+            fontSize:"12px",cursor:'pointer',marginRight:'10px',
+            borderRadius:"2px", border:"1px solid #FF9D00",color:"white",
+            backgroundColor:"#FF9D00",paddingTop:"3px",paddingBottom:'3px',
+            paddingLeft:'8px',paddingRight:'8px',float:'left',
+        };
+        let pageText = {
+            fontSize:"12px",marginRight:'10px',color:"#FF9D00",
+            paddingTop:"3px",paddingBottom:'3px',paddingLeft:'8px',
+            paddingRight:'8px',float:'left',
+        };
+
+        if(this.props.dataList.navigatepageNums != null){
+            return (
+                <div className="width" style={{marginTop:'30px',paddingBottom:'50px',marginLeft:'200px'}}>
+                    <div style={pageStyle} onClick={this.prePage}>上一页</div>
+                    {this.renderNavigatepageNums(this.props.dataList.navigatepageNums)}
+                    <div style={pageStyle} onClick={this.nextPage}>下一页</div>
+                    <div style={pageText}>共计:{this.props.dataList.total}</div>
+                </div>
+            );
+        }
+    }
 
     componentDidMount(){
-        this.getArticle(this.state.pageNum);
+        //this.getArticle();
     }
 
     render(){
-        let pageStyle = {
-            fontSize:"12px",cursor:'pointer',marginRight:'10px',borderRadius:"2px", border:"1px solid #FF9D00",color:"white",backgroundColor:"#FF9D00",paddingTop:"3px",paddingBottom:'3px',paddingLeft:'8px',paddingRight:'8px',float:'left',
-        }
-
-        let pageText = {
-            fontSize:"12px",marginRight:'10px',color:"#FF9D00",paddingTop:"3px",paddingBottom:'3px',paddingLeft:'8px',paddingRight:'8px',float:'left',
-        }
-
         return(
             <div className="traver">
                 <div className="traver_all">
                     <div className="traver_left left">
-                    <div className="traver_travel width">
-                        <div style={{fontSize:'18px'}}>游记列表</div>
-                        <div className="width">
-                            {this.renderArticle(this.state.data)}
-                        </div>
-                        <div className="width" style={{marginTop:'30px',paddingBottom:'50px',marginLeft:'200px'}}>
-                            <div style={pageStyle} onClick={this.prePage}>上一页</div>
-                            {this.renderNavigatepageNums(this.state.navigatepageNums)}
-                            <div style={pageStyle} onClick={this.nextPage}>下一页</div>
-                            <div style={pageText}>共计:{this.state.total}</div>
+                        <div className="traver_travel width">
+                            <div style={{fontSize:'18px'}}>攻略列表</div>
+                            <div className="width">
+                                {this.renderArticle(this.props.dataList.reslist)}
+                            </div>
+                            {this.renderPage()}
                         </div>
                     </div>
-                </div>
-                 <div className="user_info_div">
-                     <div className="user_info_img">
-                         <img src="http://localhost:8080/imgs/1525599654188.jpeg"/>
-                     </div>
-                     <div className="user_info_nickname">
-                         李欣
-                     </div>
-                     <div className="user_info_intro">
-                         新疆大学教师，乌鲁木齐登山探险协会会员，新疆观鸟协会会员；酷爱登山、徒步、地理探险、摄影和写作；十数年来，其足迹遍布新疆维吾尔自治区境内之天山、昆仑山、阿尔金山、阿尔泰山、东帕米尔高原及塔里木、准噶尔盆地等地
-                     </div>
-                 </div>
+
                 </div>
             </div>
         );
     }
 }
 
-export default ComponentTraver;
+export default StrategyList;

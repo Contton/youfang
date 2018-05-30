@@ -59,15 +59,13 @@ class ComponentTitle extends Component{
     changeMouserOver(index){
         this.setState({mouse_over:index});
     }
-    componentWillMount(){
+    componentDidMount(){
         this.getCity();
     }
     getCity(){
-        $.getScript('http://ip.ws.126.net/ipquery', function() {
-            this.setState({
-                province:'window.localAddress.province',
-                city:'window.localAddress.city',
-            });
+        $.getScript('http://ip.ws.126.net/ipquery', ()=>{
+            this.setState({province:window.localAddress.province});
+            this.setState({city:window.localAddress.city});
         });
     }
     render(){
@@ -76,11 +74,9 @@ class ComponentTitle extends Component{
                 <div className="title1_logo left">游方</div>
                 <Link to="/home/index"><HerderSelect index="1" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true} first={true}>
                     首页</HerderSelect></Link>
-                <Link to="/home/hotPlace"><HerderSelect index="2" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
-                    热门景点</HerderSelect></Link>
                 <Link to="/home/hotStrategy"><HerderSelect index="3" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                     热门攻略</HerderSelect></Link>
-                <Link to="/home/hotTravel/33"><HerderSelect index="4" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
+                <Link to="/home/hotTravel"><HerderSelect index="4" changeMouserOver={this.changeMouserOver.bind(this)} changeClicked={this.changeClicked.bind(this)} selected={this.state.clicked} mouse_over={this.state.mouse_over} left={true}>
                     热门游记</HerderSelect></Link>
                 <div className="title1_location font_14 left">当前城市：<a>{this.state.city === '' ? this.state.province : this.state.city}</a></div>
                 {this.showLogin()}

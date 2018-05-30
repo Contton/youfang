@@ -5,7 +5,7 @@ import { HOT_TRAVEL_URL, HOT_TRAVELLER__URL, HOT_STRATEGY_URL, HOT_PLACE_URL } f
 
 class Traveller extends React.Component{
     openTraver(){
-        this.props.push('/traverPage/1');
+        this.props.push('/userShow/1');
     }
     render(){
         return(

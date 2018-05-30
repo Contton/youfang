@@ -1,0 +1,21 @@
+.hotPageBody{
+    width: 100%;
+    float: left;
+}
+
+.hotDiv{
+    margin: 0 auto;
+    width: 1360px;
+}
+
+.Line{
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.shortLine{
+    float: left;
+    width: 600px;
+    margin-left: 180px;
+    margin-top: 40px;
+    border-bottom: 1px dashed #bbbbbb;
+}

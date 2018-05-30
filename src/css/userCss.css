@@ -6,7 +6,7 @@
 }
 
 .headerCenter{
-    width: 130px;
+    width: 200px;
     float: right;
     line-height:50px;
     color: #fff;
@@ -19,6 +19,10 @@
 
 .user_com{
     background-color: #EFEFEF;
+}
+
+.user_click{
+    background-color: #9f9f9f;
 }
 
 .TopTitle_com{
@@ -73,6 +77,7 @@
     height: 150px;
     border-radius: 50%;
     margin-top: 10px;
+    cursor: pointer;
 }
 .user_name{
     width: 100%;
@@ -214,7 +219,7 @@
 .userFans_one{
     margin-top: 10px;
     width: 30%;
-    height: 260px;
+    height: 220px;
     border: 1px solid #E5E5E5;
     margin-left: 2%;
     margin-bottom: 10px;
@@ -248,14 +253,36 @@
 .userFans_border{
     border-left: 1px solid #E5E5E5;
 }
-.userFans_button{
-    border: none;
-    outline:medium;
-    width: 30%;
-    height: 12%;
-    margin-left: 15%;
-    margin-top: 5%;
-}
 .userFans_margin{
     margin-left: 10%;
+}
+
+.headerImgDiv{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #ff8403;
+    position: absolute;
+    top:200px;
+    left: 450px;
+}
+
+
+.do_btn{
+    background-color: #ff8403;
+    color: white;
+    box-shadow: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    width: 80px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.showdiv{
+    display: block;
+}
+
+.hiddendiv{
+    display: none;
 }

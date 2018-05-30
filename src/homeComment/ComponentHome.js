@@ -13,7 +13,7 @@ class ComponentHome extends Component{
     render(){
         return(
                 <div className="route_all">
-                    <ComponentPicture/>
+                    <ComponentPicture push = {this.props.history.push}/>
                     <ComponentContent push = {this.props.history.push}/>
                     <ComponentAboute/>
                 </div>

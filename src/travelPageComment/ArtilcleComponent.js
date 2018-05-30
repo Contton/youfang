@@ -3,8 +3,9 @@ import React from 'react';
 import $ from 'jquery';
 import CommentList from '../userComment/CommentList';
 
-import {ONE_TRAVEL_URL, TRAVEL_DO_PRAISE, USER_TRAVER} from "../API";
+import {GET_COMMENT_BY_ARTICLEID, ONE_TRAVEL_URL, TRAVEL_DO_PRAISE, USER_TRAVER, ADD_COMMENT, DO_WATCH} from "../API";
 import BackTop from "../util/BackTop";
+import {doGet} from "../util/getDataByAjax";
 
 class ArtilcleComponent extends React.Component{
 
@@ -71,7 +72,7 @@ class ArtilcleComponent extends React.Component{
         //http://localhost:8080/traverArticle/doPraise/1
         let url = TRAVEL_DO_PRAISE + id;
         $.get(url,(res)=>{
-            if(res.code == 200){
+            if(res.code === '200'){
                 this.setState({praiseCount:this.state.praiseCount+1});
             }
         })
@@ -95,7 +96,13 @@ class ArtilcleComponent extends React.Component{
         }
         return list;
     }
-
+    doWatch(id){
+        doGet(DO_WATCH + id,()=>{
+            alert("关注成功");
+        },()=>{
+            alert("关注失败");
+        })
+    }
     render(){
         return(
             <div>
@@ -110,8 +117,8 @@ class ArtilcleComponent extends React.Component{
                         <div className="page1_writer radius left">
                             <div className="page1_head left"><img src={this.state.author.headImageUrl}/></div>
                             <div className="page1_name left font_16">{this.state.author.nickName}</div>
-                            <div className="page1_connect right font_16">联系博主</div>
-                            <div className="page1_intro left font_14">333</div>
+                            <div className="page1_connect right font_16" onClick={this.doWatch.bind(this,this.state.author.id)}>关注博主</div>
+                            <div className="page1_intro left font_14">这个博主很懒，什么都没有留下......</div>
                             <div className="page1_like left font_14 color_grey">已有<span className="color_orange">2399</span>名粉丝</div>
                         </div>
                         <div className="page1_content left">
@@ -123,14 +130,14 @@ class ArtilcleComponent extends React.Component{
                         <div className="page1_button color_white font_12 radius left background">收藏</div>
                         <div onClick={this.goEnd.bind(this)} className="page1_button color_white font_12 radius left background">评论</div>
                         <div className="page1_more left">
-                            <div className="page1_moreTitle width font_14">该作者其他文章</div>
+                            <div className="page1_moreTitle width font_14">其他游记</div>
                             {this.renderAuthorArticle(this.state.articleList)}
                         </div>
                     </div>
                 </div>
             </div>
             </div>
-            <CommentList articleId={this.state.article_id}/>
+            <CommentList url={GET_COMMENT_BY_ARTICLEID} addurl={ADD_COMMENT} articleId={this.state.article_id}/>
             <BackTop/>
             </div>
         );

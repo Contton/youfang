@@ -39,7 +39,7 @@ class ComponentLogin extends React.Component{
                     //跳转到首页
                     this.props.history.push('/home/index');
                 }else{
-                    alert("密码错误");
+                    alert("用户名或密码错误");
                 }
             },
             error:()=>{

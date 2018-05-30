@@ -2,6 +2,7 @@
 import React from 'react';
 import ArticleComponent from './ArtilcleComponent';
 
+
 class ComponentStrategyPage extends React.Component{
     constructor(props){
         super(props);
